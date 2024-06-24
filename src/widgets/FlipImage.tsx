@@ -24,7 +24,13 @@ const FlipImage: FC<FlipImageProps> = ({}) => {
   });
 
   return (
-    <div className={cls("relative w-[160px] h-[160px]", "rounded-full")}>
+    <div
+      className={cls(
+        "relative w-[160px] h-[160px]",
+        "rounded-full",
+        "m-[10px]"
+      )}
+    >
       <a.div
         className={cls("absolute w-full h-full", "rounded-full")}
         style={{

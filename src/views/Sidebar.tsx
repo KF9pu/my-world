@@ -12,7 +12,7 @@ const Sidebar: FC<SidebarProps> = ({}) => {
       className={cls(
         "flex flex-col items-center gap-[20px]",
         "relative",
-        "w-[220px] h-full",
+        "w-[240px] h-full",
         "shadow-lg",
         "rounded-l-2xl"
       )}

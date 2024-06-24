@@ -18,9 +18,7 @@ const Navbar: FC<NavbarProps> = ({}) => {
         "select-none"
       )}
     >
-      <div className={cls("rounded-full", "shadow-lg", "m-[10px]")}>
-        <FlipImage />
-      </div>
+      <FlipImage />
       <ul className={cls("flex gap-2", "shadow-lg")}>
         <NavCard pageIndex={0} />
         <NavCard pageIndex={1} />
