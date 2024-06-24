@@ -1,5 +1,7 @@
+"use client";
+import usePage from "@/shared/store/usePage";
+import { FlipImage, NavCard } from "@/widgets";
 import { cls } from "hsh-utils-string";
-import Image from "next/image";
 import type { FC } from "react";
 
 interface NavbarProps {}
@@ -8,24 +10,23 @@ const Navbar: FC<NavbarProps> = ({}) => {
   return (
     <nav
       className={cls(
-        "flex items-center",
-        "w-[1024px]",
+        "flex items-center gap-[20px]",
+        "absolute left-[10px] top-[10px]",
+        "w-[1004px] h-fit",
         "shadow-lg",
-        "py-3 px-2"
+        "rounded-full",
+        "select-none"
       )}
     >
-      <div className={cls("relative", "w-[56px] h-[56px]", "rounded-full")}>
-        <Image
-          src={"/image/my-clay.png"}
-          fill
-          alt="hong"
-          className={cls("rounded-full")}
-        />
+      <div className={cls("rounded-full", "shadow-lg", "m-[10px]")}>
+        <FlipImage />
       </div>
-      <div className={cls("flex gap-2", "shadow-lg")}>
-        <p>nav 1</p>
-        <p>nav 2sss</p>
-      </div>
+      <ul className={cls("flex gap-2", "shadow-lg")}>
+        <NavCard pageIndex={0} />
+        <NavCard pageIndex={1} />
+        <NavCard pageIndex={2} />
+        <NavCard pageIndex={3} />
+      </ul>
     </nav>
   );
 };
