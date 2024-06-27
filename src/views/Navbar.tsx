@@ -14,12 +14,12 @@ const Navbar: FC<NavbarProps> = ({}) => {
         "absolute left-[10px] top-[10px]",
         "w-[1004px] h-fit",
         "shadow-lg",
-        "rounded-full",
+        "rounded-l-full rounded-r-2xl",
         "select-none"
       )}
     >
       <FlipImage />
-      <ul className={cls("flex gap-2", "shadow-lg")}>
+      <ul className={cls("flex gap-2", "w-[790px]", "shadow-lg", "p-[20px]")}>
         <NavCard pageIndex={0} />
         <NavCard pageIndex={1} />
         <NavCard pageIndex={2} />

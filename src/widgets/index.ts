@@ -6,3 +6,4 @@
 
 export { default as FlipImage } from "./FlipImage";
 export { default as NavCard } from "./NavCard";
+export { default as SideCard } from "./SideCard";
