@@ -8,10 +8,10 @@ import { cls } from "hsh-utils-string";
 interface FlipImageProps {}
 
 const images = [
+  "https://i.imgur.com/pHotGCo.png",
   "/images/my-poto.jpg",
-  "/images/my-clay.png",
-  "/images/logo-Gellery.png",
-  "/images/logo-comunity.png",
+  "https://i.imgur.com/NJDh4I1.jpeg",
+  "https://i.imgur.com/3uQ5T3t.jpeg",
 ];
 
 const FlipImage: FC<FlipImageProps> = ({}) => {
@@ -24,13 +24,7 @@ const FlipImage: FC<FlipImageProps> = ({}) => {
   });
 
   return (
-    <div
-      className={cls(
-        "relative w-[160px] h-[160px]",
-        "rounded-full",
-        "m-[10px]"
-      )}
-    >
+    <div className={cls("relative w-[160px] h-[160px]", "rounded-full")}>
       <a.div
         className={cls("absolute w-full h-full", "rounded-full")}
         style={{

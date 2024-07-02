@@ -7,3 +7,5 @@
 export { default as FlipImage } from "./FlipImage";
 export { default as NavCard } from "./NavCard";
 export { default as SideCard } from "./SideCard";
+export { default as FlipSideCard } from "./FlipSideCard";
+export { default as FlipNavCard } from "./FlipNavCard";

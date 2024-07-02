@@ -2,7 +2,7 @@ enum Page {
   "Profile" = 0,
   "World" = 1,
   "Gellary" = 2,
-  "" = 3,
+  "FoodMap" = 3,
 }
 
 const PageEnum = { Page };

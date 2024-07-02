@@ -1,30 +1,66 @@
 "use client";
+import { useHoverPage } from "@/shared";
 import usePage from "@/shared/store/usePage";
-import { FlipImage, NavCard } from "@/widgets";
+import { FlipImage, FlipNavCard, NavCard } from "@/widgets";
 import { cls } from "hsh-utils-string";
-import type { FC } from "react";
+import { useState, type FC } from "react";
 
 interface NavbarProps {}
 
 const Navbar: FC<NavbarProps> = ({}) => {
+  const { hoverPageSet } = useHoverPage();
+  const [navHover, setNavHover] = useState(false);
   return (
     <nav
       className={cls(
-        "flex items-center gap-[20px]",
-        "absolute left-[10px] top-[10px]",
-        "w-[1004px] h-fit",
+        "flex justify-between items-center",
+        "absolute left-[20px] top-[20px]",
+        "hover:w-[984px] h-[200px]",
         "shadow-lg",
-        "rounded-l-full rounded-r-2xl",
-        "select-none"
+        navHover ? "rounded-l-full" : "rounded-full",
+        "p-[20px]",
+        "select-none",
+        "transition-all",
+        "overflow-hidden",
+        "bg-red-200"
       )}
+      onMouseOver={() => setNavHover(true)}
+      onMouseLeave={() => {
+        hoverPageSet(undefined);
+        setNavHover(false);
+      }}
     >
       <FlipImage />
-      <ul className={cls("flex gap-2", "w-[790px]", "shadow-lg", "p-[20px]")}>
-        <NavCard pageIndex={0} />
-        <NavCard pageIndex={1} />
-        <NavCard pageIndex={2} />
-        <NavCard pageIndex={3} />
-      </ul>
+      <div
+        className={cls(
+          "flex flex-col gap-[8px]",
+          "h-full",
+          "transition-all",
+          navHover ? "" : "hidden"
+        )}
+      >
+        <ul
+          className={cls(
+            "flex items-end gap-2",
+            "w-[750px] h-1/2",
+            "pb-[10px]"
+          )}
+        >
+          <div
+            className={cls(
+              "flex justify-between items-end gap-[8px]",
+              "relative",
+              "w-full"
+            )}
+          >
+            <NavCard pageIndex={0} />
+            <NavCard pageIndex={1} />
+            <NavCard pageIndex={2} />
+            <NavCard pageIndex={3} />
+          </div>
+        </ul>
+        <FlipNavCard />
+      </div>
     </nav>
   );
 };

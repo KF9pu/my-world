@@ -21,9 +21,7 @@ const Sidebar: FC<SidebarProps> = ({}) => {
       )}
     >
       <Navbar />
-      <div className={cls("mt-[200px]", "shadow-lg")}>
-        <SideCard />
-      </div>
+      <SideCard />
     </aside>
   );
 };

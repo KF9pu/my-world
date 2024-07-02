@@ -17,10 +17,11 @@ const usePage = create<State>((set) => ({
     set((state) => ({
       pageNum: state.pageNum === 0 ? 3 : state.pageNum - 1,
     })),
-  pageSet: (pageNum) =>
+  pageSet: (pageNum) => {
     set(() => ({
       pageNum,
-    })),
+    }));
+  },
 }));
 
 export default usePage;
