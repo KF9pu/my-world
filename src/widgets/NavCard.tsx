@@ -14,21 +14,23 @@ const NavCard: FC<NavCardProps> = ({ pageIndex }) => {
   return (
     <li
       className={cls(
-        "flex justify-center items-center",
+        "flex justify-center",
         "absolute",
         "w-[100px] h-fit",
-        "shadow-md",
-        "rounded-full",
-        "px-[12px] py-[8px]",
-        "transition-all",
+        "shadow-lg",
+        "rounded-t-3xl",
+        "py-[4px]",
+        "transition-all duration-500",
+        "cursor-pointer",
         pageNum === pageIndex
           ? "bg-black text-white"
-          : "hover:py-[12px] hover:text-[20px]"
+          : "hover:text-white hover:font-bold hover:bg-red-600"
       )}
-      style={{ left: `${pageIndex * 110 + 20}px` }}
-      onMouseOver={() =>
-        hoverPageSet(pageNum === pageIndex ? undefined : pageIndex)
-      }
+      style={{ left: `${pageIndex * 140 + 93}px` }}
+      onMouseOver={() => {
+        console.log("pageNum === pageIndex : ", pageNum === pageIndex);
+        hoverPageSet(pageNum === pageIndex ? undefined : pageIndex);
+      }}
       onClick={() => {
         pageSet(pageIndex);
         hoverPageSet(undefined);

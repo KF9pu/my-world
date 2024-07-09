@@ -1,7 +1,7 @@
-enum Page {
+export enum Page {
   "Profile" = 0,
   "World" = 1,
-  "Gellary" = 2,
+  "Gallery" = 2,
   "FoodMap" = 3,
 }
 

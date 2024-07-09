@@ -1,20 +1,15 @@
-// FlipImage.tsx
-import { FC } from "react";
+// XFlipBox.tsx
+import { FC, ReactNode } from "react";
 import { useSpring, a } from "@react-spring/web";
 import Image from "next/image";
 import usePage from "@/shared/store/usePage";
 import { cls } from "hsh-utils-string";
 
-interface FlipImageProps {}
+interface XFlipBoxProps {
+  children: ReactNode;
+}
 
-const images = [
-  "https://i.imgur.com/pHotGCo.png",
-  "/images/my-poto.jpg",
-  "https://i.imgur.com/NJDh4I1.jpeg",
-  "https://i.imgur.com/3uQ5T3t.jpeg",
-];
-
-const FlipImage: FC<FlipImageProps> = ({}) => {
+const XFlipBox: FC<XFlipBoxProps> = ({ children }) => {
   const { pageNum } = usePage();
 
   const { transform, opacity } = useSpring({
@@ -32,12 +27,7 @@ const FlipImage: FC<FlipImageProps> = ({}) => {
           transform,
         }}
       >
-        <Image
-          src={images[pageNum]}
-          fill
-          alt="hong"
-          className="rounded-full w-full h-full z-20"
-        />
+        {children}
       </a.div>
       <a.div
         className={cls("absolute w-full h-full", "rounded-full")}
@@ -47,15 +37,10 @@ const FlipImage: FC<FlipImageProps> = ({}) => {
           rotateY: "180deg",
         }}
       >
-        <Image
-          src={images[pageNum]}
-          fill
-          alt="hong"
-          className="rounded-full w-full h-full z-20"
-        />
+        {children}
       </a.div>
     </div>
   );
 };
 
-export default FlipImage;
+export default XFlipBox;

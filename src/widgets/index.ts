@@ -4,8 +4,9 @@
  *  - 버튼, 입력 필드, 모달 창 등이 여기에 속합니다.
  */
 
-export { default as FlipImage } from "./FlipImage";
+export { default as XFlipBox } from "./XFlipBox";
+export { default as YFlipBox } from "./YFlipBox";
 export { default as NavCard } from "./NavCard";
+export { default as NavDetailCard } from "./NavDetailCard";
 export { default as SideCard } from "./SideCard";
 export { default as FlipSideCard } from "./FlipSideCard";
-export { default as FlipNavCard } from "./FlipNavCard";

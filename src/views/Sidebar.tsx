@@ -1,7 +1,6 @@
 "use client";
 import { cls } from "hsh-utils-string";
 import type { FC } from "react";
-import FlipImage from "@/widgets/FlipImage";
 import Navbar from "./Navbar";
 import { usePage } from "@/shared";
 import { SideCard } from "@/widgets";

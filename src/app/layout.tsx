@@ -32,11 +32,7 @@ export default function RootLayout({
         >
           <Sidebar />
           <div
-            className={cls(
-              "flex flex-col gap-2",
-              "w-full h-full",
-              "pt-[200px] pl-[20px]"
-            )}
+            className={cls("flex flex-col gap-2", "w-full h-full", "p-[20px]")}
           >
             {children}
           </div>
