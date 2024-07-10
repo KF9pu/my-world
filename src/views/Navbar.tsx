@@ -7,7 +7,6 @@ import { useSpring, a } from "@react-spring/web";
 import { cls } from "hsh-utils-string";
 import Image from "next/image";
 import { useRef, useState, useEffect, type FC } from "react";
-import { useScroll } from "@use-gesture/react";
 
 interface NavbarProps {}
 
@@ -22,7 +21,7 @@ const Navbar: FC<NavbarProps> = ({}) => {
   const { pageNum } = usePage();
   const { hoverPageNum, hoverPageSet } = useHoverPage();
   const [navHover, setNavHover] = useState(false);
-  const { sections, pageCnt } = usePageMenu();
+  const { hoverSections, pageCnt } = usePageMenu();
 
   const scrollContainerRef = useRef<HTMLDivElement | null>(null);
   const [isScrolledToEnd, setIsScrolledToEnd] = useState(false);
@@ -73,7 +72,7 @@ const Navbar: FC<NavbarProps> = ({}) => {
 
   return (
     <nav
-      className={cls("absolute left-[20px] top-[20px]")}
+      className={cls("absolute left-[20px] top-[20px]", "w-full", "")}
       onMouseOver={() => {
         setNavHover(true);
       }}
@@ -97,7 +96,7 @@ const Navbar: FC<NavbarProps> = ({}) => {
       >
         {/* react spring 버그인지 div로 한 번 감싸주어야 이미지가 깨지지 않음 */}
         <div>
-          <YFlipBox>
+          <YFlipBox addStyle={"w-[160px] h-[160px]"} rounded shadow>
             <Image
               src={images[pageNum]}
               fill
@@ -143,7 +142,7 @@ const Navbar: FC<NavbarProps> = ({}) => {
               )}
             >
               <ul className={cls("flex items-start", "relative", "w-full")}>
-                {Array.from({ length: Math.max(5, sections.length) }).map(
+                {Array.from({ length: Math.max(5, hoverSections.length) }).map(
                   (_, idx) => {
                     return (
                       <NavDetailCard key={`NavDetailCard_${idx}`} idx={idx} />
@@ -152,7 +151,7 @@ const Navbar: FC<NavbarProps> = ({}) => {
                 )}
               </ul>
             </div>
-            {sections.length > 5 ? (
+            {hoverSections.length > 5 ? (
               <i
                 className={cls(
                   "flex gap-0 justify-center items-center",

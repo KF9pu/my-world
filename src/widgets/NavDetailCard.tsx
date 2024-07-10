@@ -7,15 +7,15 @@ interface NavDetailCardProps {
 }
 
 const NavDetailCard: FC<NavDetailCardProps> = ({ idx }) => {
-  const { sections } = usePageMenu();
+  const { hoverSections } = usePageMenu();
   return (
     <li
       className={cls(
         "absolute",
         "w-[120px]",
         "px-[12px]",
-        idx >= sections.length
-          ? sections.length != 0
+        idx >= hoverSections.length
+          ? hoverSections.length != 0
             ? "h-[16px]"
             : ""
           : "py-[4px] hover:pb-[12px] hover:bg-slate-600",
@@ -27,7 +27,7 @@ const NavDetailCard: FC<NavDetailCardProps> = ({ idx }) => {
       )}
       style={{ left: `${idx * 130 + 35}px` }}
     >
-      {sections[idx] || ""}
+      {hoverSections[idx] || ""}
     </li>
   );
 };

@@ -28,7 +28,6 @@ const NavCard: FC<NavCardProps> = ({ pageIndex }) => {
       )}
       style={{ left: `${pageIndex * 140 + 93}px` }}
       onMouseOver={() => {
-        console.log("pageNum === pageIndex : ", pageNum === pageIndex);
         hoverPageSet(pageNum === pageIndex ? undefined : pageIndex);
       }}
       onClick={() => {

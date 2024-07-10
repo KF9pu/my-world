@@ -7,19 +7,27 @@ import { cls } from "hsh-utils-string";
 
 interface XFlipBoxProps {
   children: ReactNode;
+  width: number;
+  height?: number;
 }
 
-const XFlipBox: FC<XFlipBoxProps> = ({ children }) => {
+const XFlipBox: FC<XFlipBoxProps> = ({ children, height, width }) => {
   const { pageNum } = usePage();
 
   const { transform, opacity } = useSpring({
     opacity: pageNum % 2 === 0 ? 1 : 0,
-    transform: `perspective(600px) rotateY(${pageNum % 2 === 0 ? 180 : 0}deg)`,
+    transform: `perspective(600px) rotateX(${pageNum % 2 === 0 ? 180 : 0}deg)`,
     config: { mass: 5, tension: 500, friction: 80 },
   });
 
   return (
-    <div className={cls("relative w-[160px] h-[160px]", "rounded-full")}>
+    <div
+      className={cls("relative", "rounded-full")}
+      style={{
+        width: `${width}px`,
+        height: height ? `${height}px` : "fit-content",
+      }}
+    >
       <a.div
         className={cls("absolute w-full h-full", "rounded-full")}
         style={{
@@ -34,7 +42,7 @@ const XFlipBox: FC<XFlipBoxProps> = ({ children }) => {
         style={{
           opacity,
           transform,
-          rotateY: "180deg",
+          rotateX: "180deg",
         }}
       >
         {children}
