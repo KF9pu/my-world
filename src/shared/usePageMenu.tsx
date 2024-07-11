@@ -1,4 +1,4 @@
-// hooks/usePageMenu.ts
+"use client";
 import { PageEnum } from "@/enums";
 import { useState, useEffect } from "react";
 import useHoverPage from "./store/useHoverPage";

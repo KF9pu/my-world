@@ -2,8 +2,7 @@
 import { useHoverPage } from "@/shared";
 import usePage from "@/shared/store/usePage";
 import usePageMenu from "@/shared/usePageMenu";
-import { NavCard, NavDetailCard, YFlipBox } from "@/widgets";
-import ArrowRight from "@/widgets/ArrowRight";
+import { NavCard, NavDetailCard, YFlipBox, ArrowRight } from "@/widgets";
 import { useSpring, a } from "@react-spring/web";
 import { cls } from "hsh-utils-string";
 import Image from "next/image";
@@ -152,22 +151,19 @@ const Navbar: FC<NavbarProps> = ({}) => {
                 )}
               </ul>
             </div>
-            {hoverSections.length > 5 ? (
-              <ArrowRight
-                arrowCnt={3}
-                addStyleBox={cls(
-                  "flex justify-center items-center",
-                  "absolute right-[8px] bottom-[8px]",
-                  "w-fit h-fit",
-                  "transition-opacity",
-                  isScrolledToEnd ? "opacity-0" : ""
-                )}
-                addStyleArrow={cls("")}
-                ping
-              />
-            ) : (
-              <></>
-            )}
+            <ArrowRight
+              sectionsLength={hoverSections.length}
+              arrowCnt={3}
+              addStyleBox={cls(
+                "flex justify-center items-center",
+                "absolute right-[8px] bottom-[8px]",
+                "w-fit h-fit",
+                "transition-opacity",
+                isScrolledToEnd ? "opacity-0" : ""
+              )}
+              addStyleArrow={cls("")}
+              ping
+            />
           </div>
         </a.div>
       </a.div>

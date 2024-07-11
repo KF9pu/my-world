@@ -4,4 +4,5 @@
  *  - 화면에 표시되는 요소들을 구현합니다.
  */
 export { default as Navbar } from "./Navbar";
+export { default as SideNavigation } from "./SideNavigation ";
 export { default as Sidebar } from "./Sidebar";

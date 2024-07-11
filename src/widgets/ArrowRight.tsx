@@ -7,6 +7,7 @@ interface ArrowRightProps {
   addStyleArrow?: string;
   arrowCnt: number;
   ping?: true;
+  sectionsLength: number;
 }
 
 const ArrowRight: FC<ArrowRightProps> = ({
@@ -14,9 +15,9 @@ const ArrowRight: FC<ArrowRightProps> = ({
   addStyleBox,
   addStyleArrow,
   ping,
+  sectionsLength,
 }) => {
-  const { hoverSections } = usePageMenu();
-  return hoverSections.length > 5 ? (
+  return sectionsLength > 5 ? (
     <i className={cls(addStyleBox ?? "")}>
       {Array.from({ length: arrowCnt }).map((_, idx) => {
         return (

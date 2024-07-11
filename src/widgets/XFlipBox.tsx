@@ -1,7 +1,6 @@
-// XFlipBox.tsx
+"use client";
 import { FC, ReactNode } from "react";
 import { useSpring, a } from "@react-spring/web";
-import Image from "next/image";
 import usePage from "@/shared/store/usePage";
 import { cls } from "hsh-utils-string";
 

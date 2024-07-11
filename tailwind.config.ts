@@ -40,9 +40,6 @@ const config: Config = {
         cusPing3: "cusPing3 2s infinite",
         cusPing4: "cusPing4 2s infinite",
       },
-      fontFamily: {
-        custom: ["온글잎언즈체"],
-      },
     },
   },
   plugins: [],

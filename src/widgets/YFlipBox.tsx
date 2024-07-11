@@ -1,5 +1,5 @@
-// YFlipBox.tsx
-import { FC, ReactNode, useEffect, useState } from "react";
+"use client";
+import { FC, MutableRefObject, ReactNode, useEffect, useState } from "react";
 import { useSpring, a } from "@react-spring/web";
 import usePage from "@/shared/store/usePage";
 import { cls } from "hsh-utils-string";

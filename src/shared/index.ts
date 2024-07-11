@@ -6,3 +6,4 @@
 
 export { default as usePage } from "./store/usePage";
 export { default as useHoverPage } from "./store/useHoverPage";
+export { default as usePageMenu } from "./usePageMenu";
