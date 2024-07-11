@@ -26,7 +26,12 @@ export default function RootLayout({
         >
           <SideNavigation />
           <div
-            className={cls("flex flex-col gap-2", "w-full h-full", "p-[20px]")}
+            className={cls(
+              "flex flex-col gap-2",
+              "w-full h-full",
+              "p-[20px]",
+              "bg-primary-light"
+            )}
           >
             {children}
           </div>

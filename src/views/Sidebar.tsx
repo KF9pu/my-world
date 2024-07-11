@@ -55,18 +55,17 @@ const Sidebar: FC<SidebarProps> = ({}) => {
         className={cls(
           "flex flex-col items-center gap-[12px]",
           "w-[200px] h-full",
-          "shadow-lg",
+          "shadow-lg shadow-primary-shadow",
           "rounded-full",
           "pt-[210px]",
-          "bg-blue-200"
+          "text-primary-dark-contrast"
         )}
       >
         <h2
           className={cls(
             "w-fit",
             "font-bold",
-            "text-white",
-            "rounded-xl shadow-lg",
+            "rounded-xl shadow-lg shadow-primary-shadow",
             "px-[24px] py-[12px]",
             "text-[24px]"
           )}
@@ -78,7 +77,7 @@ const Sidebar: FC<SidebarProps> = ({}) => {
             "w-[180px]",
             "relative",
             "border",
-            "rounded-2xl shadow-lg",
+            "rounded-2xl shadow-lg shadow-primary-shadow",
             "py-[12px] px-[20px]"
           )}
         >

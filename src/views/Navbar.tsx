@@ -85,12 +85,13 @@ const Navbar: FC<NavbarProps> = ({}) => {
         className={cls(
           "flex items-center gap-[60px]",
           "hover:w-[984px]",
-          "shadow-lg",
+          "shadow-lg shadow-primary-shadow",
           navHover ? "rounded-l-full" : "rounded-full",
           "p-[20px]",
           "select-none",
           "transition-all duration-300",
-          "overflow-hidden"
+          "overflow-hidden",
+          "bg-primary"
         )}
         style={navSpringProps}
       >
@@ -118,7 +119,7 @@ const Navbar: FC<NavbarProps> = ({}) => {
               "flex items-end",
               "w-[708px] h-1/2",
               "rounded-tl-full",
-              "shadow-lg"
+              "shadow-lg shadow-primary-shadow"
             )}
           >
             <ul className={cls("flex items-end", "relative", "w-full")}>
@@ -138,7 +139,7 @@ const Navbar: FC<NavbarProps> = ({}) => {
                 "w-full h-full",
                 "overflow-x-scroll",
                 "rounded-bl-full",
-                "shadow-lg"
+                "shadow-lg shadow-primary-shadow"
               )}
             >
               <ul className={cls("flex items-start", "relative", "w-full")}>
