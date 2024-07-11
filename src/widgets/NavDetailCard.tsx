@@ -18,7 +18,7 @@ const NavDetailCard: FC<NavDetailCardProps> = ({ idx }) => {
           ? hoverSections.length != 0
             ? "h-[16px]"
             : ""
-          : "py-[4px] hover:pb-[12px] hover:bg-slate-600",
+          : "py-[4px] hover:pb-[12px] hover:bg-[#fff5d4] hover:text-[20px]",
         "shadow-lg",
         "rounded-b-3xl",
         "text-center",

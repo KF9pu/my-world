@@ -10,7 +10,7 @@ interface NavCardProps {
 
 const NavCard: FC<NavCardProps> = ({ pageIndex }) => {
   const { pageNum, pageSet } = usePage();
-  const { hoverPageSet } = useHoverPage();
+  const { hoverPageNum, hoverPageSet } = useHoverPage();
   return (
     <li
       className={cls(
@@ -20,11 +20,14 @@ const NavCard: FC<NavCardProps> = ({ pageIndex }) => {
         "shadow-lg",
         "rounded-t-3xl",
         "py-[4px]",
-        "transition-all duration-500",
+        "transition-all",
         "cursor-pointer",
         pageNum === pageIndex
-          ? "bg-black text-white"
-          : "hover:text-white hover:font-bold hover:bg-red-600"
+          ? "bg-[#FF9200] font-bold text-white pt-[12px]"
+          : "hover:text-white hover:font-bold hover:bg-[#FFC300] hover:pt-[12px]",
+        hoverPageNum === pageIndex
+          ? "text-white font-bold bg-[#FFC300] pt-[12px]"
+          : ""
       )}
       style={{ left: `${pageIndex * 140 + 93}px` }}
       onMouseOver={() => {
