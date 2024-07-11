@@ -22,6 +22,7 @@ const NavCard: FC<NavCardProps> = ({ pageIndex }) => {
         "py-[4px]",
         "transition-all",
         "cursor-pointer",
+        "text-[20px]",
         pageNum === pageIndex
           ? "bg-[#FF9200] font-bold text-white pt-[12px]"
           : "hover:text-white hover:font-bold hover:bg-[#FFC300] hover:pt-[12px]",

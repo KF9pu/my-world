@@ -19,7 +19,8 @@ export default function RootLayout({
         className={cls(
           "flex items-center justify-center",
           "h-screen",
-          "p-[20px]"
+          "p-[20px]",
+          "font-custom"
         )}
       >
         <div

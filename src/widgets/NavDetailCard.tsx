@@ -14,16 +14,14 @@ const NavDetailCard: FC<NavDetailCardProps> = ({ idx }) => {
         "absolute",
         "w-[120px]",
         "px-[12px]",
-        idx >= hoverSections.length
-          ? hoverSections.length != 0
-            ? "h-[16px]"
-            : ""
-          : "py-[4px] hover:pb-[12px] hover:bg-[#fff5d4] hover:text-[20px]",
         "shadow-lg",
         "rounded-b-3xl",
         "text-center",
         "transition-all",
-        "cursor-pointer"
+        "cursor-pointer",
+        idx >= hoverSections.length
+          ? cls(hoverSections.length != 0 ? "h-[16px]" : "")
+          : "text-[20px] py-[4px] hover:pb-[8px] hover:bg-[#fff5d4] hover:rounded-full hover:mt-[8px]"
       )}
       style={{ left: `${idx * 130 + 35}px` }}
     >

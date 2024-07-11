@@ -17,26 +17,26 @@ const SideCard: FC<SideCardProps> = ({}) => {
           "flex flex-col items-center gap-[12px]",
           "w-[200px] h-full",
           "shadow-lg",
-          "rounded-t-full",
-          "pt-[240px]",
+          "rounded-full",
+          "pt-[210px]",
           "bg-blue-200"
         )}
       >
         <h2
           className={cls(
             "w-fit",
-            "sticky",
             "font-bold",
             "text-white",
             "rounded-xl shadow-lg",
-            "px-[24px] py-[12px]"
+            "px-[24px] py-[12px]",
+            "text-[24px]"
           )}
         >
           {PageEnum.Page[pageNum]}
         </h2>
         <YFlipBox
           addStyle={cls(
-            "w-[180px] h-[80%]",
+            "w-[180px] max-h-[80%] min-h-[40%]",
             "px-[12px]",
             "border",
             "rounded-2xl"
@@ -46,7 +46,11 @@ const SideCard: FC<SideCardProps> = ({}) => {
         >
           <ul className={cls("flex flex-col gap-[20px]", "px-[4px] py-[20px]")}>
             {sections.map((section, idx) => {
-              return <li key={`sidevar_${idx}`}>{section}</li>;
+              return (
+                <li className={cls("text-[24px]")} key={`sidevar_${idx}`}>
+                  {section}
+                </li>
+              );
             })}
           </ul>
         </YFlipBox>

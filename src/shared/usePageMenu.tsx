@@ -16,50 +16,26 @@ const usePageMenu = () => {
     switch (pageEnumValue) {
       case PageEnum.Page[0]:
         return [
-          "Intro",
-          "Settings",
-          "Chronicles",
-          "Activity",
-          "nice",
-          "zz",
-          "Settings",
-          "Chronicles",
-          "Activity",
-          "nice",
-          "zz",
-          "Settings",
-          "Chronicles",
-          "Activity",
-          "nice",
-          "zz",
-          "Settings",
-          "Chronicles",
-          "Activity",
-          "nice",
-          "zz",
-          "Chronicles",
-          "Activity",
-          "nice",
-          "zz",
-          "Chronicles",
-          "Activity",
-          "nice",
-          "zz",
-          "Chronicles",
-          "Activity",
-          "nice",
-          "zz",
-          "Chronicles",
-          "Activity",
-          "nice",
-          "zz",
+          "소개",
+          "프로젝트",
+          "연혁",
+          "활동",
+          "프로젝트",
+          "연혁",
+          "활동",
+          "프로젝트",
+          "연혁",
+          "활동",
+          "프로젝트",
+          "연혁",
+          "활동",
         ];
       case PageEnum.Page[1]:
-        return ["News", "Events", "Maps", "nice", "zz", "nice", "zz"];
+        return ["갤러리", "플레이센터", "-"];
       case PageEnum.Page[2]:
-        return ["Photos", "Videos", "Albums", "nice", "zz", "nice", "zz"];
+        return ["내 맛집", "방송맛집", "제철음식", "로컬음식"];
       case PageEnum.Page[3]:
-        return ["Restaurants", "Cafes", "Reviews", "nice", "zz", "nice", "zz"];
+        return [];
       default:
         return [];
     }
