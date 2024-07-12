@@ -3,6 +3,7 @@ import { useHoverPage } from "@/shared";
 import usePage from "@/shared/store/usePage";
 import usePageMenu from "@/shared/usePageMenu";
 import { NavCard, NavDetailCard, YFlipBox, ArrowRight } from "@/widgets";
+import EmptyBox from "@/widgets/EmptyBox";
 import { useSpring, a } from "@react-spring/web";
 import { cls } from "hsh-utils-string";
 import Image from "next/image";
@@ -27,7 +28,7 @@ const Navbar: FC<NavbarProps> = ({}) => {
   const [isScrolledToEnd, setIsScrolledToEnd] = useState(false);
 
   const navSpringProps = useSpring({
-    width: navHover ? 968 : 200,
+    width: navHover ? 984 : 200,
     config: { tension: 0, friction: 0 },
   });
 
@@ -72,19 +73,19 @@ const Navbar: FC<NavbarProps> = ({}) => {
 
   return (
     <nav
-      className={cls("absolute left-[20px] top-[20px]", "w-full")}
+      className={cls("absolute left-[20px] top-[20px]", "w-[984px]", "z-[10]")}
+      onClick={() => setNavHover(true)}
       onMouseOver={() => {
         setNavHover(true);
       }}
-      onMouseLeave={() => {
-        hoverPageSet(undefined);
-        setNavHover(false);
-      }}
+      // onMouseLeave={() => {
+      //   hoverPageSet(undefined);
+      //   setNavHover(false);
+      // }}
     >
       <a.div
         className={cls(
           "flex items-center gap-[60px]",
-          "hover:w-[984px]",
           "shadow-lg shadow-primary-shadow",
           navHover ? "rounded-l-full" : "rounded-full",
           "p-[20px]",
@@ -108,7 +109,7 @@ const Navbar: FC<NavbarProps> = ({}) => {
         <a.div
           className={cls(
             "flex flex-col",
-            "h-[120px]",
+            "w-full h-[120px]",
             "transition-all duration-300",
             "rounded-l-full",
             "bg-primary-dark"
@@ -118,7 +119,7 @@ const Navbar: FC<NavbarProps> = ({}) => {
           <div
             className={cls(
               "flex items-end",
-              "w-[708px] h-1/2",
+              "w-[728px] h-1/2",
               "rounded-tl-full",
               "shadow-lg shadow-primary-shadow"
             )}
@@ -130,7 +131,7 @@ const Navbar: FC<NavbarProps> = ({}) => {
             </ul>
           </div>
           <div
-            className={cls("flex items-start", "relative", "w-[708px] h-1/2")}
+            className={cls("flex items-start", "relative", "w-[728px] h-1/2")}
           >
             <div
               ref={scrollContainerRef}
@@ -143,11 +144,17 @@ const Navbar: FC<NavbarProps> = ({}) => {
                 "shadow-lg shadow-primary-shadow"
               )}
             >
-              <ul className={cls("flex items-start", "relative", "w-full")}>
+              <ul className={cls("flex", "w-full h-full", "relative")}>
                 {Array.from({ length: Math.max(5, hoverSections.length) }).map(
                   (_, idx) => {
                     return (
-                      <NavDetailCard key={`NavDetailCard_${idx}`} idx={idx} />
+                      <>
+                        <NavDetailCard key={`NavDetailCard_${idx}`} idx={idx} />
+                        <EmptyBox
+                          active={hoverSections.length > 5}
+                          distance={hoverSections.length * 140 + 25}
+                        />
+                      </>
                     );
                   }
                 )}
