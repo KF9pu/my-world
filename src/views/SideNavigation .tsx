@@ -14,7 +14,8 @@ const SideNavigation: FC<SideNavigationProps> = ({}) => {
         "w-[240px] h-full",
         "shadow-lg shadow-primary-shadow",
         "rounded-l-2xl",
-        "bg-primary-dark"
+        "bg-primary-dark",
+        "select-none"
       )}
     >
       <Navbar />

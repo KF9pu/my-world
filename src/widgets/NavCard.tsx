@@ -17,17 +17,17 @@ const NavCard: FC<NavCardProps> = ({ pageIndex }) => {
         "flex justify-center",
         "absolute",
         "w-[100px] h-fit",
-        "shadow-lg shadow-primary-shadow",
         "rounded-t-3xl",
         "py-[4px]",
         "transition-all",
         "cursor-pointer",
         "text-[20px]",
+        "text-shadow-lg",
         pageNum === pageIndex
-          ? "bg-primary-dark font-bold text-white pt-[12px]"
+          ? "bg-primary font-bold text-white pt-[12px]"
           : "hover:text-primary-light-contrast hover:font-bold hover:bg-primary-light hover:pt-[12px]",
         hoverPageNum === pageIndex
-          ? "text-white font-bold bg-primary pt-[12px]"
+          ? "text-white font-bold bg-primary-light pt-[12px]"
           : ""
       )}
       style={{ left: `${pageIndex * 140 + 93}px` }}

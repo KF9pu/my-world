@@ -65,34 +65,54 @@ const Sidebar: FC<SidebarProps> = ({}) => {
           className={cls(
             "w-fit",
             "font-bold",
-            "rounded-xl shadow-lg shadow-primary-shadow",
             "px-[24px] py-[12px]",
-            "text-[24px]"
+            "text-[24px]",
+            "text-shadow-lg"
           )}
         >
           {PageEnum.Page[pageNum]}
         </h2>
-        <div
-          className={cls(
-            "w-[180px]",
-            "relative",
-            "border",
-            "rounded-2xl shadow-lg shadow-primary-shadow",
-            "py-[12px] px-[20px]"
-          )}
-        >
+        <div className={cls("relative w-[180px] h-[300px]")}>
           <div
             ref={scrollSideRef}
             className={cls(
+              "flex",
               "overflow-y-scroll",
-              sections.length > 5 ? "h-[320px]" : "h-[300px]"
+              "w-full h-full",
+              "rounded-2xl shadow-lg shadow-primary-shadow",
+              "bg-primary"
             )}
           >
-            <YFlipBox>
-              <ul className={cls("flex flex-col gap-[20px]")}>
+            <YFlipBox
+              fit
+              addStyle={cls(
+                "flex",
+                "w-full h-[300px]",
+                sections.length > 6 ? "" : "items-center"
+              )}
+            >
+              <ul
+                className={cls(
+                  "flex flex-col items-center gap-[12px] ",
+                  sections.length > 6 ? "py-[20px]" : ""
+                )}
+              >
                 {sections.map((section, idx) => {
                   return (
-                    <li className={cls("text-[24px]")} key={`sidevar_${idx}`}>
+                    <li
+                      className={cls(
+                        "text-[24px] text-center text-shadow-lg",
+                        "w-[80%]",
+                        "transition-all",
+                        "rounded-full",
+                        "cursor-pointer",
+                        "hover:bg-primary-dark hover:shadow-lg hover:shadow-primary-dark-shadow"
+                      )}
+                      onClick={() => {
+                        console.log("diqdiq");
+                      }}
+                      key={`sidevar_${idx}`}
+                    >
                       {section}
                     </li>
                   );
@@ -101,7 +121,7 @@ const Sidebar: FC<SidebarProps> = ({}) => {
             </YFlipBox>
           </div>
           <ArrowRight
-            sectionsLength={sections.length}
+            active={sections.length > 6}
             arrowCnt={3}
             addStyleBox={cls(
               "flex justify-center items-center",
@@ -111,7 +131,6 @@ const Sidebar: FC<SidebarProps> = ({}) => {
               "transition-opacity",
               isScrolledToEnd ? "opacity-0" : "opacity-1"
             )}
-            addStyleArrow={cls("")}
             ping
           />
         </div>

@@ -10,6 +10,7 @@ interface YFlipBoxProps {
   shadow?: true;
   scrollY?: true;
   addStyle?: any;
+  fit?: true;
 }
 
 const YFlipBox: FC<YFlipBoxProps> = ({
@@ -18,6 +19,7 @@ const YFlipBox: FC<YFlipBoxProps> = ({
   shadow,
   scrollY,
   addStyle,
+  fit,
 }) => {
   const { pageNum } = usePage();
   const [isRotate, setIsRotate] = useState(false);
@@ -42,23 +44,33 @@ const YFlipBox: FC<YFlipBoxProps> = ({
       )}
     >
       <a.div
-        className={cls("absolute w-full h-full", "rounded-full")}
+        className={cls(
+          "absolute w-full",
+          fit ? "h-fit" : "h-full",
+          rounded ? "" : "rounded-full",
+          isRotate ? "z-0" : "z-[1]"
+        )}
         style={{
           opacity: opacity.to((o) => 1 - o),
           transform,
           rotateY: "180deg",
         }}
       >
-        {children}
+        <div>{children}</div>
       </a.div>
       <a.div
-        className={cls("absolute w-full h-full", "rounded-full")}
+        className={cls(
+          "absolute w-full",
+          fit ? "h-fit" : "h-full",
+          rounded ? "" : "rounded-full",
+          isRotate ? "z-[1]" : "z-0"
+        )}
         style={{
           opacity,
           transform,
         }}
       >
-        {children}
+        <div>{children}</div>
       </a.div>
     </div>
   );

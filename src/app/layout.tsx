@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { SideNavigation } from "@/views";
+import { MainContainer, SideNavigation } from "@/views";
 import { cls } from "hsh-utils-string";
 
 export const metadata: Metadata = {
@@ -25,16 +25,7 @@ export default function RootLayout({
           )}
         >
           <SideNavigation />
-          <div
-            className={cls(
-              "flex flex-col gap-2",
-              "w-full h-full",
-              "p-[20px]",
-              "bg-primary-light"
-            )}
-          >
-            {children}
-          </div>
+          <MainContainer>{children}</MainContainer>
         </div>
       </body>
     </html>

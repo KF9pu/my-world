@@ -18,23 +18,24 @@ const config: Config = {
       },
       keyframes: {
         cusPing1: {
-          "0%, 100%": { stroke: "#FFC300" },
-          "50%": { stroke: "black" },
+          "0%, 50%, 100%": { stroke: "#E08B66" },
+          "25%": { stroke: "white" },
         },
         cusPing2: {
-          "0%, 100%": { stroke: "#FFB300" },
-          "60%": { stroke: "black" },
+          "0%, 10%, 60%, 100%": { stroke: "#E08B66" },
+          "35%": { stroke: "white" },
         },
         cusPing3: {
-          "0%, 100%": { stroke: "#FFA300" },
-          "70%": { stroke: "black" },
+          "0%, 20%, 70%, 100%": { stroke: "#E08B66" },
+          "45%": { stroke: "white" },
         },
-        cusPing4: {
-          "0%, 100%": { stroke: "#FF9200" },
-          "80%": { stroke: "black" },
+        smallBounce: {
+          "0%, 100%": { transform: "translateY(-1%)" },
+          "70%": { transform: "none" },
         },
       },
       animation: {
+        smallBounce: "smallBounce 3s infinite",
         cusPing1: "cusPing1 2s infinite",
         cusPing2: "cusPing2 2s infinite",
         cusPing3: "cusPing3 2s infinite",

@@ -13,8 +13,8 @@ interface NavbarProps {}
 const images = [
   "/images/my-poto.jpg",
   "https://i.imgur.com/pHotGCo.png",
-  "https://i.imgur.com/NJDh4I1.jpeg",
   "https://i.imgur.com/3uQ5T3t.jpeg",
+  "https://i.imgur.com/NJDh4I1.jpeg",
 ];
 
 const Navbar: FC<NavbarProps> = ({}) => {
@@ -72,7 +72,7 @@ const Navbar: FC<NavbarProps> = ({}) => {
 
   return (
     <nav
-      className={cls("absolute left-[20px] top-[20px]", "w-full", "")}
+      className={cls("absolute left-[20px] top-[20px]", "w-full")}
       onMouseOver={() => {
         setNavHover(true);
       }}
@@ -88,7 +88,6 @@ const Navbar: FC<NavbarProps> = ({}) => {
           "shadow-lg shadow-primary-shadow",
           navHover ? "rounded-l-full" : "rounded-full",
           "p-[20px]",
-          "select-none",
           "transition-all duration-300",
           "overflow-hidden",
           "bg-primary"
@@ -110,7 +109,9 @@ const Navbar: FC<NavbarProps> = ({}) => {
           className={cls(
             "flex flex-col",
             "h-[120px]",
-            "transition-all duration-300"
+            "transition-all duration-300",
+            "rounded-l-full",
+            "bg-primary-dark"
           )}
           style={navTapSpringProps}
         >
@@ -153,7 +154,7 @@ const Navbar: FC<NavbarProps> = ({}) => {
               </ul>
             </div>
             <ArrowRight
-              sectionsLength={hoverSections.length}
+              active={hoverSections.length > 5}
               arrowCnt={3}
               addStyleBox={cls(
                 "flex justify-center items-center",

@@ -15,21 +15,7 @@ const usePageMenu = () => {
 
     switch (pageEnumValue) {
       case PageEnum.Page[0]:
-        return [
-          "소개",
-          "프로젝트",
-          "연혁",
-          "활동",
-          "프로젝트",
-          "연혁",
-          "활동",
-          "프로젝트",
-          "연혁",
-          "활동",
-          "프로젝트",
-          "연혁",
-          "활동",
-        ];
+        return ["소개", "프로젝트", "연혁", "활동"];
       case PageEnum.Page[1]:
         return ["갤러리", "플레이센터", "-"];
       case PageEnum.Page[2]:

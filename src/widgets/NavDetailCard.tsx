@@ -19,6 +19,7 @@ const NavDetailCard: FC<NavDetailCardProps> = ({ idx }) => {
         "text-center",
         "transition-all",
         "cursor-pointer",
+        "text-shadow-lg",
         idx >= hoverSections.length
           ? cls(hoverSections.length != 0 ? "h-[16px]" : "")
           : "text-[20px] py-[4px] hover:pb-[8px] hover:bg-primary-light hover:rounded-full hover:mt-[8px]"

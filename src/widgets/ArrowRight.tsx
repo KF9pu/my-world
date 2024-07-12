@@ -7,7 +7,7 @@ interface ArrowRightProps {
   addStyleArrow?: string;
   arrowCnt: number;
   ping?: true;
-  sectionsLength: number;
+  active?: boolean;
 }
 
 const ArrowRight: FC<ArrowRightProps> = ({
@@ -15,9 +15,9 @@ const ArrowRight: FC<ArrowRightProps> = ({
   addStyleBox,
   addStyleArrow,
   ping,
-  sectionsLength,
+  active,
 }) => {
-  return sectionsLength > 5 ? (
+  return active ? (
     <i className={cls(addStyleBox ?? "")}>
       {Array.from({ length: arrowCnt }).map((_, idx) => {
         return (
