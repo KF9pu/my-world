@@ -18,6 +18,7 @@
 
 body {
   font-family: "온글잎언즈체";
+  font-size: 24px;
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,
