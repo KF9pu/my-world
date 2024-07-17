@@ -7,3 +7,4 @@ export { default as Navbar } from "./Navbar";
 export { default as SideNavigation } from "./SideNavigation ";
 export { default as Sidebar } from "./Sidebar";
 export { default as MainContainer } from "./MainContainer";
+export { default as Profile } from "./Profile";
