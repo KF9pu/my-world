@@ -88,7 +88,8 @@ const Sidebar: FC<SidebarProps> = ({}) => {
               addStyle={cls(
                 "flex",
                 "w-full h-[300px]",
-                sections.length > 6 ? "" : "items-center"
+                sections.length > 6 ? "" : "items-center",
+                "z-0"
               )}
             >
               <ul

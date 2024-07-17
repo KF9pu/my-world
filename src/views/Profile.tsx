@@ -25,32 +25,41 @@ const Profile: FC<ProfileProps> = ({}) => {
       initial: [initialX, initialY], // 드래그가 시작된 시점의 위치를 나타내는 배열
       dragging, // 현재 드래그 상태인지 여부를 나타내는 부울 값
     }) => {
-      api.start({ x, y });
+      api.start({ x: movementX, y: movementY });
+
+      if (!down) {
+        // 드래그가 끝난 후 원래 위치로 돌아가도록 설정
+        api.start({ x: 0, y: 0 });
+      }
+
+      if (movementX > 100) {
+        console.log("section Up");
+      }
     }
   );
   return (
     <div className={cls("w-full h-full")}>
       <animated.div
         {...bind()}
-        className={cls("w-full h-full", "relative")}
+        className={cls("w-[94%] h-full", "relative")}
         style={{
           x: springProps.x,
           y: springProps.y,
         }}
       >
-        <ProfileSection id="intro" subheading="소개">
+        <ProfileSection id="intro" subHeading="소개">
+          <>q</>
+        </ProfileSection>
+
+        <ProfileSection id="project" subHeading="프로젝트">
           <></>
         </ProfileSection>
 
-        <ProfileSection id="project" subheading="프로젝트">
+        <ProfileSection id="histoty" subHeading="연혁">
           <></>
         </ProfileSection>
 
-        <ProfileSection id="histoty" subheading="연혁">
-          <></>
-        </ProfileSection>
-
-        <ProfileSection id="activity" subheading="활동">
+        <ProfileSection id="activity" subHeading="활동">
           <></>
         </ProfileSection>
       </animated.div>
