@@ -1,11 +1,17 @@
 "use client";
+import { PageEnum } from "@/enums";
 import { useHoverPage } from "@/shared";
-import usePage from "@/shared/store/usePage";
-import usePageMenu from "@/shared/usePageMenu";
-import { NavCard, NavDetailCard, YFlipBox, ArrowRight } from "@/widgets";
-import EmptyBox from "@/widgets/EmptyBox";
+import { usePage, usePageMenu } from "@/shared";
+import {
+  NavCard,
+  NavDetailCard,
+  YFlipBox,
+  ArrowRight,
+  EmptyBox,
+} from "@/widgets";
 import { useSpring, a } from "@react-spring/web";
 import { cls } from "hsh-utils-string";
+import { isRSCRequestCheck } from "next/dist/server/base-server";
 import Image from "next/image";
 import { useRef, useState, useEffect, type FC } from "react";
 
@@ -22,7 +28,7 @@ const Navbar: FC<NavbarProps> = ({}) => {
   const { pageNum } = usePage();
   const { hoverPageNum, hoverPageSet } = useHoverPage();
   const [navHover, setNavHover] = useState(false);
-  const { hoverSections, pageCnt } = usePageMenu();
+  const { hoverSections } = usePageMenu();
 
   const scrollContainerRef = useRef<HTMLDivElement | null>(null);
   const [isScrolledToEnd, setIsScrolledToEnd] = useState(false);
@@ -73,15 +79,15 @@ const Navbar: FC<NavbarProps> = ({}) => {
 
   return (
     <nav
-      className={cls("absolute left-[20px] top-[20px]", "w-[984px]", "z-[10]")}
-      onClick={() => setNavHover(true)}
+      className={cls("absolute left-[20px] top-[20px]", "w-full", "z-[10]")}
+      // onClick={() => setNavHover(true)}
       onMouseOver={() => {
         setNavHover(true);
       }}
-      // onMouseLeave={() => {
-      //   hoverPageSet(undefined);
-      //   setNavHover(false);
-      // }}
+      onMouseLeave={() => {
+        hoverPageSet(undefined);
+        setNavHover(false);
+      }}
     >
       <a.div
         className={cls(
@@ -125,7 +131,7 @@ const Navbar: FC<NavbarProps> = ({}) => {
             )}
           >
             <ul className={cls("flex items-end", "relative", "w-full")}>
-              {Array.from({ length: pageCnt }).map((_, idx) => {
+              {Array.from({ length: PageEnum.pageCnt }).map((_, idx) => {
                 return <NavCard key={`NavCard_${idx}`} pageIndex={idx} />;
               })}
             </ul>
@@ -148,16 +154,14 @@ const Navbar: FC<NavbarProps> = ({}) => {
                 {Array.from({ length: Math.max(5, hoverSections.length) }).map(
                   (_, idx) => {
                     return (
-                      <>
-                        <NavDetailCard key={`NavDetailCard_${idx}`} idx={idx} />
-                        <EmptyBox
-                          active={hoverSections.length > 5}
-                          distance={hoverSections.length * 140 + 25}
-                        />
-                      </>
+                      <NavDetailCard key={`NavDetailCard_${idx}`} idx={idx} />
                     );
                   }
                 )}
+                <EmptyBox
+                  active={hoverSections.length > 5}
+                  distance={hoverSections.length * 140 + 25}
+                />
               </ul>
             </div>
             <ArrowRight

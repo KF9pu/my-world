@@ -40,8 +40,6 @@ const usePageMenu = () => {
   return {
     sections,
     hoverSections,
-    pageCnt: Object.keys(PageEnum.Page).filter((key) => isNaN(Number(key)))
-      .length,
   };
 };
 

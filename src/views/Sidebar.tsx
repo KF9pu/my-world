@@ -100,6 +100,7 @@ const Sidebar: FC<SidebarProps> = ({}) => {
                 {sections.map((section, idx) => {
                   return (
                     <li
+                      key={`sideBar_sections_${idx}`}
                       className={cls(
                         "text-[24px] text-center text-shadow-lg",
                         "w-[80%]",
@@ -108,10 +109,6 @@ const Sidebar: FC<SidebarProps> = ({}) => {
                         "cursor-pointer",
                         "hover:bg-primary-dark hover:shadow-lg hover:shadow-primary-dark-shadow"
                       )}
-                      onClick={() => {
-                        console.log("diqdiq");
-                      }}
-                      key={`sidevar_${idx}`}
                     >
                       {section}
                     </li>

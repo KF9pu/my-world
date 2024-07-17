@@ -22,7 +22,7 @@ const ArrowRight: FC<ArrowRightProps> = ({
       {Array.from({ length: arrowCnt }).map((_, idx) => {
         return (
           <svg
-            key={`ArrowRight${arrowCnt}_${idx}`}
+            key={`ArrowRight_${arrowCnt}_${idx}`}
             className={cls(addStyleArrow ?? "")}
             width="12"
             height="12"
