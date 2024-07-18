@@ -13,7 +13,8 @@ const IntroSection: FC<IntroSectionProps> = ({}) => {
             "flex justify-between items-center gap-[8px]",
             "rounded-2xl",
             "shadow-lg",
-            "p-[12px]"
+            "p-[12px]",
+            "bg-accent"
           )}
         >
           <h1 className="text-[36px] font-bold text-shadow-lg">홍성화</h1>

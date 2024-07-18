@@ -19,16 +19,8 @@ const images = [
 
 const Navbar: FC<NavbarProps> = ({}) => {
   const { pageNum } = usePage();
-  const { hoverPageNum, hoverPageSet } = useHoverPage();
+  const { hoverPageSet } = useHoverPage();
   const [navHover, setNavHover] = useState(false);
-  const { pageCnt, PageToSections } = PageEnum;
-
-  const scrollContainerRef = useRef<HTMLDivElement | null>(null);
-  const [isScrolledToEnd, setIsScrolledToEnd] = useState(false);
-
-  const hoverSections =
-    PageToSections[hoverPageNum !== undefined ? hoverPageNum : "none"];
-  const sectionLength = hoverSections.length;
 
   const navSpringProps = useSpring({
     width: navHover ? 984 : 200,
@@ -40,39 +32,6 @@ const Navbar: FC<NavbarProps> = ({}) => {
     opacity: navHover ? 1 : 0,
     config: { tension: 0, friction: 0 },
   });
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (scrollContainerRef.current) {
-        const { scrollLeft, scrollWidth, clientWidth } =
-          scrollContainerRef.current;
-        if (scrollLeft + clientWidth >= scrollWidth) {
-          setIsScrolledToEnd(true);
-        } else {
-          setIsScrolledToEnd(false);
-        }
-      }
-    };
-
-    const scrollContainer = scrollContainerRef.current;
-    if (scrollContainer) {
-      scrollContainer.addEventListener("scroll", handleScroll);
-      handleScroll();
-    }
-
-    return () => {
-      if (scrollContainer) {
-        scrollContainer.removeEventListener("scroll", handleScroll);
-      }
-    };
-  }, []);
-
-  useEffect(() => {
-    setIsScrolledToEnd(false);
-    if (scrollContainerRef.current) {
-      scrollContainerRef.current.scrollLeft = 0;
-    }
-  }, [hoverPageNum]);
 
   return (
     <nav
@@ -119,52 +78,8 @@ const Navbar: FC<NavbarProps> = ({}) => {
           )}
           style={navTapSpringProps}
         >
-          <div
-            className={cls(
-              "flex items-end",
-              "w-[728px] h-1/2",
-              "rounded-tl-full",
-              "shadow-lg shadow-primary-shadow"
-            )}
-          >
-            <ul className={cls("flex items-end", "relative", "w-full")}>
-              {Array.from({ length: pageCnt }).map((_, idx) => {
-                return <NavCard key={`NavCard_${idx}`} pageIndex={idx} />;
-              })}
-            </ul>
-          </div>
-          <div
-            className={cls("flex items-start", "relative", "w-[728px] h-1/2")}
-          >
-            <div
-              ref={scrollContainerRef}
-              className={cls(
-                "flex items-start",
-                "relative",
-                "w-full h-full",
-                "overflow-x-scroll",
-                "rounded-bl-full",
-                "shadow-lg shadow-primary-shadow"
-              )}
-            >
-              <ul className={cls("flex", "w-full h-full", "relative")}>
-                <NavDetailCard />
-              </ul>
-            </div>
-            <ArrowRight
-              active={sectionLength > 5}
-              arrowCnt={3}
-              addStyleBox={cls(
-                "flex justify-center items-center",
-                "absolute right-[8px] bottom-[8px]",
-                "w-fit h-fit",
-                "transition-opacity",
-                isScrolledToEnd ? "opacity-0" : ""
-              )}
-              addStyleArrow={cls("")}
-              ping
-            />
-          </div>
+          <NavCard />
+          <NavDetailCard />
         </a.div>
       </a.div>
     </nav>
