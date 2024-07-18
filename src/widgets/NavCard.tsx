@@ -36,7 +36,7 @@ const NavCard: FC<NavCardProps> = ({}) => {
                 "text-shadow-lg",
                 pageNum === idx
                   ? "bg-primary-light font-bold text-primary-dark-contrast pt-[12px]"
-                  : "hover:text-primary-light-contrast hover:font-bold hover:bg-primary-light hover:pt-[12px]",
+                  : "hover:text-primary-light-contrast hover:font-bold hover:bg-accent hover:pt-[12px]",
                 hoverPageNum === idx
                   ? "text-accent-contrast font-bold bg-accent pt-[12px]"
                   : ""

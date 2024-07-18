@@ -1,4 +1,4 @@
-import { useHoverPage } from "@/shared";
+import { useHoverPage, usePage, useSideSectionPage } from "@/shared";
 import { cls } from "hsh-utils-string";
 import { useEffect, useRef, useState, type FC } from "react";
 import { PageEnum } from "@/enums";
@@ -8,7 +8,9 @@ import ArrowRight from "./ArrowRight";
 interface NavDetailCardProps {}
 
 const NavDetailCard: FC<NavDetailCardProps> = ({}) => {
-  const { hoverPageNum } = useHoverPage();
+  const { hoverPageNum, hoverPageSet } = useHoverPage();
+  const { pageSet } = usePage();
+  const { setSideSection } = useSideSectionPage();
   const { PageToSections } = PageEnum;
 
   const scrollContainerRef = useRef<HTMLDivElement | null>(null);
@@ -61,7 +63,8 @@ const NavDetailCard: FC<NavDetailCardProps> = ({}) => {
           "w-full h-full",
           "overflow-x-scroll",
           "rounded-bl-full",
-          "shadow-lg shadow-primary-shadow"
+          "shadow-lg shadow-primary-shadow",
+          hoverPageNum === undefined ? "bg-primary-light" : "bg-accent"
         )}
       >
         <ul className={cls("flex", "w-full h-full", "relative")}>
@@ -70,6 +73,11 @@ const NavDetailCard: FC<NavDetailCardProps> = ({}) => {
           }).map((_, idx) => {
             return (
               <li
+                onClick={() => {
+                  pageSet(hoverPageNum ?? 0);
+                  setSideSection(idx);
+                  hoverPageSet(undefined);
+                }}
                 key={`NavDetailCard_${idx}`}
                 className={cls(
                   "absolute",
@@ -83,7 +91,7 @@ const NavDetailCard: FC<NavDetailCardProps> = ({}) => {
                   "text-shadow-lg",
                   idx >= sectionLength
                     ? cls(sectionLength !== 0 ? "h-[16px]" : "")
-                    : "text-[20px] py-[4px] hover:pb-[8px] hover:bg-primary-light hover:rounded-full hover:mt-[8px]"
+                    : "text-[20px] py-[4px] hover:bg-primary hover:rounded-full hover:mt-[8px]"
                 )}
                 style={{ left: `${idx * 140 + 25}px` }}
               >
