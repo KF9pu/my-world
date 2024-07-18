@@ -21,12 +21,15 @@ const useSideSectionPage = create<State>((set) => ({
       };
     }),
   sideSectionDown: () =>
-    set((state) => ({
-      currentSection:
-        state.currentSection === 0
-          ? PageEnum.pageCnt - 1
-          : state.currentSection - 1,
-    })),
+    set((state) => {
+      const { pageNum } = usePage();
+      return {
+        currentSection:
+          state.currentSection === 0
+            ? PageEnum.PageToSections[`${pageNum}`].length - 1
+            : state.currentSection - 1,
+      };
+    }),
   setSideSection: (sectionIndex) => {
     set(() => ({
       currentSection: sectionIndex,

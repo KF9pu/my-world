@@ -9,15 +9,21 @@ const IntroSection: FC<IntroSectionProps> = ({}) => {
     <ProfileSection id="intro" subHeading="소개" sectionIdx={0}>
       <div className={cls("w-full h-full", "")}>
         <header
-          className={cls("flex justify-between items-center gap-[8px]", "")}
+          className={cls(
+            "flex justify-between items-center gap-[8px]",
+            "rounded-2xl",
+            "shadow-lg",
+            "p-[12px]"
+          )}
         >
           <h1 className="text-[36px] font-bold text-shadow-lg">홍성화</h1>
           <div
             className={cls(
               "min-w-[120px]",
-              "border",
               "p-[12px]",
-              "rounded-2xl"
+              "bg-primary-light",
+              "rounded-2xl",
+              "shadow-lg"
             )}
           >
             <IconGithub />

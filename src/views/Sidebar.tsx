@@ -1,6 +1,6 @@
 "use client";
 import { PageEnum } from "@/enums";
-import { usePage } from "@/shared";
+import { usePage, useSideSectionPage } from "@/shared";
 import { useEffect, useRef, useState, type FC } from "react";
 import { cls } from "hsh-utils-string";
 import YFlipBox from "../widgets/YFlipBox";
@@ -11,6 +11,7 @@ interface SidebarProps {}
 const Sidebar: FC<SidebarProps> = ({}) => {
   const { pageNum } = usePage();
   const { Page, PageToSections } = PageEnum;
+  const { currentSection, setSideSection } = useSideSectionPage();
 
   const sideSection = PageToSections[pageNum];
   const sideSectionLength = sideSection.length;
@@ -60,6 +61,7 @@ const Sidebar: FC<SidebarProps> = ({}) => {
           "shadow-lg shadow-primary-shadow",
           "rounded-full",
           "pt-[210px]",
+          "bg-primary-light",
           "text-primary-dark-contrast"
         )}
       >
@@ -104,13 +106,17 @@ const Sidebar: FC<SidebarProps> = ({}) => {
                   return (
                     <li
                       key={`sideBar_sections_${idx}`}
+                      onClick={() => setSideSection(idx)}
                       className={cls(
                         "text-[24px] text-center text-shadow-lg",
                         "w-[80%]",
                         "transition-all",
                         "rounded-full",
                         "cursor-pointer",
-                        "hover:bg-primary-dark hover:shadow-lg hover:shadow-primary-dark-shadow"
+                        "shadow-primary-dark-shadow",
+                        currentSection === idx
+                          ? "bg-primary-dark shadow-lg text-primary-dark-contrast"
+                          : "hover:bg-primary-light hover:shadow-lg hover:shadow-primary-dark-shadow text-primary-light-contrast"
                       )}
                     >
                       {section}

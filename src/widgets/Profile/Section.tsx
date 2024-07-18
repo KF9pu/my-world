@@ -100,14 +100,17 @@ const Section: FC<SectionProps> = ({
         "w-full h-[94%]",
         "absolute",
         "rounded-3xl",
-        "border",
-        currentSection === sectionIdx
-          ? "bg-primary-dark z-[6]"
-          : "bg-primary-light z-[5]"
+        "shadow-lg",
+        "bg-opacity-0"
       )}
       style={{
         x: springProps.x,
         y: springProps.y,
+        zIndex: currentSection === sectionIdx ? 8 : 7 - sectionIdx,
+        backgroundColor:
+          currentSection === sectionIdx
+            ? "rgba(224, 139, 102, 1)"
+            : `rgba(245, 169, 127, ${1 - (sectionIdx * 2) / 10})`, // 배경 투명도 설정
       }}
     >
       <div className={cls("relative", "w-full h-full")}>
@@ -117,13 +120,16 @@ const Section: FC<SectionProps> = ({
             "absolute top-[-39.5px]",
             "w-[100px] h-[40px]",
             "rounded-t-2xl",
-            "border",
             "transition-all",
-            currentSection === sectionIdx
-              ? "bg-primary-dark border-b-0"
-              : "bg-primary-light"
+            "cursor-pointer"
           )}
-          style={{ left: `${sectionIdx * 120 + 20}px` }}
+          style={{
+            left: `${sectionIdx * 120 + 20}px`,
+            backgroundColor:
+              currentSection === sectionIdx
+                ? "rgba(224, 139, 102, 1)"
+                : `rgba(245, 169, 127, ${1 - (sectionIdx * 2) / 10})`, // 배경 투명도 설정
+          }}
         >
           <b>{subHeading}</b>
         </header>
@@ -155,8 +161,9 @@ const Section: FC<SectionProps> = ({
               className={cls(
                 "w-full h-full",
                 "overflow-y-scroll",
-                "border rounded-3xl",
-                "px-[20px] py-[20px]"
+                "rounded-3xl shadow-lg",
+                "px-[20px] py-[20px]",
+                "bg-primary-light"
               )}
             >
               {children}

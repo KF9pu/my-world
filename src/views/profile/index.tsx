@@ -11,7 +11,7 @@ interface ProfileProps {}
 const Profile: FC<ProfileProps> = ({}) => {
   return (
     <div
-      className={cls("flex flex-col justify-end", "w-full h-full", "relative")}
+      className={cls("flex flex-col justify-end", "relative", "w-full h-full")}
     >
       <IntroSection />
       <ProjectSection />

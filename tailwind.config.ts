@@ -42,15 +42,15 @@ const config: Config = {
         cusPing4: "cusPing4 2s infinite",
       },
       colors: {
-        primary: "#F5A97F", // 2024년 올해의 색상 - 피치 퍼즈
-        "primary-dark": "#E08B66", // 어두운 버전
-        "primary-light": "#FFD1B8", // 밝은 버전
+        primary: "rgba(245, 169, 127, 1)", // 2024년 올해의 색상 - 피치 퍼즈
+        "primary-dark": "rgba(224, 139, 102, 1)", // 어두운 버전
+        "primary-light": "rgba(255, 209, 184, 1)", // 밝은 버전
         accent: "#FFE0D6", // 포인트 컬러
 
         // 대비되는 색상
         "primary-contrast": "#333333", // Primary 배경 대비 텍스트 색상
         "primary-dark-contrast": "#FFFFFF", // Primary Dark 배경 대비 텍스트 색상
-        "primary-light-contrast": "#333333", // Primary Light 배경 대비 텍스트 색상
+        "primary-light-contrast": "#000000", // Primary Light 배경 대비 텍스트 색상
         "accent-contrast": "#222222", // Accent 배경 대비 텍스트 색상
 
         "primary-shadow": "rgba(0, 0, 0, 0.25)", // Primary 배경 대비 그림자

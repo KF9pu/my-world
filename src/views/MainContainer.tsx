@@ -24,17 +24,7 @@ const MainContainer: FC<MainContainerProps> = ({ children }) => {
         "select-none"
       )}
     >
-      <div
-        className={cls(
-          "flex",
-          "bg-primary",
-          "w-full h-full",
-          "rounded-2xl",
-          "p-[20px]"
-        )}
-      >
-        {children}
-      </div>
+      {children}
     </div>
   );
 };
