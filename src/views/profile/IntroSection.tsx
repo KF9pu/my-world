@@ -1,4 +1,4 @@
-import { ArrowRight, ProfileSection } from "@/widgets";
+import { ArrowRight, IconGithub, ProfileSection } from "@/widgets";
 import { cls } from "hsh-utils-string";
 import type { FC } from "react";
 
@@ -8,10 +8,20 @@ const IntroSection: FC<IntroSectionProps> = ({}) => {
   return (
     <ProfileSection id="intro" subHeading="소개" sectionIdx={0}>
       <div className={cls("w-full h-full", "")}>
-        <header className="text-center border-b-2 pb-4">
-          <h1 className="text-4xl font-bold">홍성화</h1>
-          <p>Email: pushan45hsh@gamil.com</p>
-          <p>Github: https://github.com/KF9pu</p>
+        <header
+          className={cls("flex justify-between items-center gap-[8px]", "")}
+        >
+          <h1 className="text-[36px] font-bold text-shadow-lg">홍성화</h1>
+          <div
+            className={cls(
+              "min-w-[120px]",
+              "border",
+              "p-[12px]",
+              "rounded-2xl"
+            )}
+          >
+            <IconGithub />
+          </div>
         </header>
 
         <section className="mt-8">
