@@ -1,4 +1,3 @@
-import usePageMenu from "@/shared/usePageMenu";
 import { cls } from "hsh-utils-string";
 import type { FC } from "react";
 
@@ -8,6 +7,7 @@ interface ArrowRightProps {
   arrowCnt: number;
   ping?: true;
   active?: boolean;
+  scaleUp?: true;
 }
 
 const ArrowRight: FC<ArrowRightProps> = ({
@@ -16,6 +16,7 @@ const ArrowRight: FC<ArrowRightProps> = ({
   addStyleArrow,
   ping,
   active,
+  scaleUp,
 }) => {
   return active ? (
     <i className={cls(addStyleBox ?? "")}>
@@ -23,7 +24,7 @@ const ArrowRight: FC<ArrowRightProps> = ({
         return (
           <svg
             key={`ArrowRight_${arrowCnt}_${idx}`}
-            className={cls(addStyleArrow ?? "")}
+            className={cls(addStyleArrow ?? "", scaleUp ? "scale-125" : "")}
             width="12"
             height="12"
             viewBox="0 0 12 12"

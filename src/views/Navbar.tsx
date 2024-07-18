@@ -1,17 +1,10 @@
 "use client";
 import { PageEnum } from "@/enums";
 import { useHoverPage } from "@/shared";
-import { usePage, usePageMenu } from "@/shared";
-import {
-  NavCard,
-  NavDetailCard,
-  YFlipBox,
-  ArrowRight,
-  EmptyBox,
-} from "@/widgets";
+import { usePage } from "@/shared";
+import { NavCard, NavDetailCard, YFlipBox, ArrowRight } from "@/widgets";
 import { useSpring, a } from "@react-spring/web";
 import { cls } from "hsh-utils-string";
-import { isRSCRequestCheck } from "next/dist/server/base-server";
 import Image from "next/image";
 import { useRef, useState, useEffect, type FC } from "react";
 
@@ -28,10 +21,14 @@ const Navbar: FC<NavbarProps> = ({}) => {
   const { pageNum } = usePage();
   const { hoverPageNum, hoverPageSet } = useHoverPage();
   const [navHover, setNavHover] = useState(false);
-  const { hoverSections } = usePageMenu();
+  const { pageCnt, PageToSections } = PageEnum;
 
   const scrollContainerRef = useRef<HTMLDivElement | null>(null);
   const [isScrolledToEnd, setIsScrolledToEnd] = useState(false);
+
+  const hoverSections =
+    PageToSections[hoverPageNum !== undefined ? hoverPageNum : "none"];
+  const sectionLength = hoverSections.length;
 
   const navSpringProps = useSpring({
     width: navHover ? 984 : 200,
@@ -131,7 +128,7 @@ const Navbar: FC<NavbarProps> = ({}) => {
             )}
           >
             <ul className={cls("flex items-end", "relative", "w-full")}>
-              {Array.from({ length: PageEnum.pageCnt }).map((_, idx) => {
+              {Array.from({ length: pageCnt }).map((_, idx) => {
                 return <NavCard key={`NavCard_${idx}`} pageIndex={idx} />;
               })}
             </ul>
@@ -151,21 +148,11 @@ const Navbar: FC<NavbarProps> = ({}) => {
               )}
             >
               <ul className={cls("flex", "w-full h-full", "relative")}>
-                {Array.from({ length: Math.max(5, hoverSections.length) }).map(
-                  (_, idx) => {
-                    return (
-                      <NavDetailCard key={`NavDetailCard_${idx}`} idx={idx} />
-                    );
-                  }
-                )}
-                <EmptyBox
-                  active={hoverSections.length > 5}
-                  distance={hoverSections.length * 140 + 25}
-                />
+                <NavDetailCard />
               </ul>
             </div>
             <ArrowRight
-              active={hoverSections.length > 5}
+              active={sectionLength > 5}
               arrowCnt={3}
               addStyleBox={cls(
                 "flex justify-center items-center",

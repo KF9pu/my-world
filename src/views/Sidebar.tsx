@@ -3,7 +3,6 @@ import { PageEnum } from "@/enums";
 import { usePage } from "@/shared";
 import { useEffect, useRef, useState, type FC } from "react";
 import { cls } from "hsh-utils-string";
-import usePageMenu from "@/shared/usePageMenu";
 import YFlipBox from "../widgets/YFlipBox";
 import { ArrowRight } from "@/widgets";
 
@@ -11,7 +10,10 @@ interface SidebarProps {}
 
 const Sidebar: FC<SidebarProps> = ({}) => {
   const { pageNum } = usePage();
-  const { sections } = usePageMenu();
+  const { Page, PageToSections } = PageEnum;
+
+  const sideSection = PageToSections[pageNum];
+  const sideSectionLength = sideSection.length;
 
   const scrollSideRef = useRef<HTMLDivElement | null>(null);
   const [isScrolledToEnd, setIsScrolledToEnd] = useState(false);
@@ -70,7 +72,7 @@ const Sidebar: FC<SidebarProps> = ({}) => {
             "text-shadow-lg"
           )}
         >
-          {PageEnum.Page[pageNum]}
+          {Page[pageNum]}
         </h2>
         <div className={cls("relative w-[180px] h-[300px]")}>
           <div
@@ -88,17 +90,17 @@ const Sidebar: FC<SidebarProps> = ({}) => {
               addStyle={cls(
                 "flex",
                 "w-full h-[300px]",
-                sections.length > 6 ? "" : "items-center",
+                sideSectionLength > 6 ? "" : "items-center",
                 "z-0"
               )}
             >
               <ul
                 className={cls(
                   "flex flex-col items-center gap-[12px] ",
-                  sections.length > 6 ? "py-[20px]" : ""
+                  sideSectionLength > 6 ? "py-[20px]" : ""
                 )}
               >
-                {sections.map((section, idx) => {
+                {sideSection.map((section, idx) => {
                   return (
                     <li
                       key={`sideBar_sections_${idx}`}
@@ -119,7 +121,7 @@ const Sidebar: FC<SidebarProps> = ({}) => {
             </YFlipBox>
           </div>
           <ArrowRight
-            active={sections.length > 6}
+            active={sideSectionLength > 6}
             arrowCnt={3}
             addStyleBox={cls(
               "flex justify-center items-center",

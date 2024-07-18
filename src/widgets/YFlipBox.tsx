@@ -39,8 +39,8 @@ const YFlipBox: FC<YFlipBoxProps> = ({
         "relative",
         rounded ? "rounded-full" : "",
         shadow ? "shadow-lg shadow-primary-shadow" : "",
-        addStyle ?? "",
-        scrollY ? "overflow-y-scroll" : ""
+        scrollY ? "overflow-y-scroll" : "",
+        addStyle ?? ""
       )}
     >
       <a.div
