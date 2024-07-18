@@ -106,7 +106,7 @@ const Sidebar: FC<SidebarProps> = ({}) => {
                   return (
                     <li
                       key={`sideBar_sections_${idx}`}
-                      onClick={() => setSideSection(idx)}
+                      onMouseOver={() => setSideSection(idx)}
                       className={cls(
                         "text-[24px] text-center text-shadow-lg",
                         "w-[80%]",
@@ -116,7 +116,7 @@ const Sidebar: FC<SidebarProps> = ({}) => {
                         "shadow-primary-dark-shadow",
                         currentSection === idx
                           ? "bg-primary-dark shadow-lg text-primary-dark-contrast"
-                          : "hover:bg-primary-light hover:shadow-lg hover:shadow-primary-dark-shadow text-primary-light-contrast"
+                          : "text-primary-light-contrast"
                       )}
                     >
                       {section}
