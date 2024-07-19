@@ -1,8 +1,7 @@
 import { cls } from "hsh-utils-string";
 import type { FC } from "react";
-import ArrowRight from "../ArrowRight";
 import { useIntroView } from "@/shared";
-import ClickBox from "../OpacityClickText";
+import { OpacityClickText as ClickText, ArrowRight } from "..";
 
 interface IntroSectionBackButtonProps {}
 
@@ -48,7 +47,7 @@ const IntroSectionBackButton: FC<IntroSectionBackButtonProps> = ({}) => {
         )}
       >
         <b>
-          <ClickBox className="" />
+          <ClickText className="" />
         </b>
       </div>
     </button>

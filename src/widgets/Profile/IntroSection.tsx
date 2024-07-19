@@ -1,8 +1,10 @@
 import { ProfileSection as Section } from "@/widgets";
 import { cls } from "hsh-utils-string";
 import { type FC } from "react";
-import Header from "./IntroSectionHeader";
-import Contents from "./IntroSectionContents";
+import {
+  IntroSectionHeader as Header,
+  IntroSectionContents as Contents,
+} from "..";
 
 interface IntroSectionProps {}
 

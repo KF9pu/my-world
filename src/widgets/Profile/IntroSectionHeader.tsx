@@ -1,8 +1,7 @@
 import { cls } from "hsh-utils-string";
 import type { FC } from "react";
-import NameBox from "./NameBox";
 import { useIntroView } from "@/shared";
-import { IconGithub } from "..";
+import { IconGithub, NameBox } from "..";
 
 interface IntroSectionHeaderProps {}
 

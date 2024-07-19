@@ -1,7 +1,10 @@
 import { useIntroView } from "@/shared";
 import { cls } from "hsh-utils-string";
 import type { FC } from "react";
-import BackButton from "./IntroSectionBackButton";
+import {
+  IntroSectionBackButton as BackButton,
+  IntroSectionDeckBox as DeckBox,
+} from "..";
 
 interface IntroSectionContentsProps {}
 
@@ -16,7 +19,7 @@ const infos = [
 ];
 
 const IntroSectionContents: FC<IntroSectionContentsProps> = ({}) => {
-  const { isView, viewToggle } = useIntroView();
+  const { isView } = useIntroView();
 
   return (
     <div
@@ -29,6 +32,7 @@ const IntroSectionContents: FC<IntroSectionContentsProps> = ({}) => {
       )}
     >
       <BackButton />
+      <DeckBox />
     </div>
   );
 };

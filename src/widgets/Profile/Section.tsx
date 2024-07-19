@@ -11,7 +11,7 @@ import {
   type ReactNode,
 } from "react";
 import { useSideSectionPage } from "@/shared";
-import ArrowRight from "../ArrowRight";
+import { ArrowRight } from "..";
 
 interface SectionProps extends HTMLAttributes<HTMLElement> {
   children: ReactNode;
