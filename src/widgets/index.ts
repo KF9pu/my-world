@@ -11,4 +11,8 @@ export { default as NavDetailCard } from "./NavDetailCard";
 export { default as ArrowRight } from "./ArrowRight";
 export { default as EmptyBox } from "./EmptyBox";
 export { default as ProfileSection } from "./Profile/Section";
+export { default as ActivitySection } from "./Profile/ActivitySection";
+export { default as HistorySection } from "./Profile/HistorySection";
+export { default as ProjectSection } from "./Profile/ProjectSection";
+export { default as IntroSection } from "./Profile/IntroSection";
 export { default as IconGithub } from "./icon/Github";

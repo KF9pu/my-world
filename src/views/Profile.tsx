@@ -1,10 +1,12 @@
 "use client";
+import {
+  ActivitySection,
+  HistorySection,
+  IntroSection,
+  ProjectSection,
+} from "@/widgets";
 import { cls } from "hsh-utils-string";
 import { type FC } from "react";
-import IntroSection from "./IntroSection";
-import ProjectSection from "./ProjectSection";
-import HistorySection from "./HistorySection";
-import ActivitySection from "./ActivitySection";
 
 interface ProfileProps {}
 

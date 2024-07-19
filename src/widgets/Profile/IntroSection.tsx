@@ -4,30 +4,79 @@ import type { FC } from "react";
 
 interface IntroSectionProps {}
 
+const infos = [
+  { 이름: "" },
+  { 나이: "" },
+  { 생년월일: "" },
+  { 취미: "" },
+  { 특기: "" },
+  { MBTI: "" },
+  { 혈액형: "" },
+];
+
 const IntroSection: FC<IntroSectionProps> = ({}) => {
   return (
     <ProfileSection id="intro" subHeading="소개" sectionIdx={0}>
-      <div className={cls("w-full h-full", "")}>
+      <div className={cls("", "w-full h-full", "")}>
         <header
           className={cls(
-            "flex justify-between items-center gap-[8px]",
+            "flex flex-col gap-[12px]",
             "rounded-2xl",
             "shadow-lg",
             "p-[12px]",
             "bg-accent"
           )}
         >
-          <h1 className="text-[36px] font-bold text-shadow-lg">홍성화</h1>
-          <div
-            className={cls(
-              "min-w-[120px]",
-              "p-[12px]",
-              "bg-primary-light",
-              "rounded-2xl",
-              "shadow-lg"
-            )}
-          >
-            <IconGithub />
+          <div>
+            <div
+              className={cls("flex justify-between items-center gap-[8px]", "")}
+            >
+              <div className="flex items-end gap-[4px]">
+                <h1
+                  className={cls(
+                    "text-[36px] text-shadow-lg",
+                    "cursor-pointer"
+                  )}
+                >
+                  <b className="">홍성화</b>
+                </h1>
+              </div>
+              <div
+                className={cls(
+                  "min-w-[120px]",
+                  "p-[12px]",
+                  "bg-primary-light",
+                  "rounded-2xl",
+                  "shadow-lg"
+                )}
+              >
+                <IconGithub />
+              </div>
+            </div>
+            <div className="w-fit">
+              <div
+                className={cls(
+                  "w-fit",
+                  "border border-primary-dark",
+                  "p-[8px]"
+                )}
+              >
+                <div
+                  className={cls(
+                    "flex flex-col gap-0",
+                    // "absolute right-0 bottom-0",
+                    "w-max",
+                    "border border-primary-dark rounded-2xl",
+                    "p-[8px]",
+                    "text-primary-dark leading-5"
+                  )}
+                >
+                  <b className={cls("")}>남자</b>
+                  <p className="text-[20px]">(1992.02.15)</p>
+                </div>
+              </div>
+              <hr className={cls("w-[100%] h-[2px]", "bg-primary-dark")} />
+            </div>
           </div>
         </header>
 
