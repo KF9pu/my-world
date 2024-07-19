@@ -1,13 +1,16 @@
 import { cls } from "hsh-utils-string";
-import type { FC, HTMLAttributes } from "react";
+import type { FC } from "react";
 import ArrowRight from "../ArrowRight";
+import { useIntroView } from "@/shared";
+import ClickText from "../OpacityClickText";
 
-interface NameBoxProps extends HTMLAttributes<HTMLElement> {}
+interface NameBoxProps {}
 
-const NameBox: FC<NameBoxProps> = ({ onClick, ...props }) => {
+const NameBox: FC<NameBoxProps> = () => {
+  const { viewToggle } = useIntroView();
+
   return (
     <div
-      {...props}
       className={cls(
         "flex justify-center items-center gap-[4px]",
         "group",
@@ -36,25 +39,7 @@ const NameBox: FC<NameBoxProps> = ({ onClick, ...props }) => {
       >
         <b>홍성화</b>
       </h1>
-      <div
-        className={cls(
-          "absolute",
-          "transition-opacity",
-          "opacity-0 group-hover:opacity-100",
-          "cursor-pointer",
-          "translate-y-[4px]",
-          "text-primary-dark leading-3",
-          "px-[12px] py-[4px]",
-          "group"
-        )}
-        onClick={onClick}
-      >
-        <em className="group-hover:animate-em1">C</em>
-        <em className="group-hover:animate-em2">l</em>
-        <em className="group-hover:animate-em3">i</em>
-        <em className="group-hover:animate-em4">c</em>
-        <em className="group-hover:animate-em5">k</em>
-      </div>
+      <ClickText onClick={() => viewToggle()} />
     </div>
   );
 };

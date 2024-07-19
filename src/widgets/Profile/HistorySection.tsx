@@ -1,13 +1,13 @@
-import { ProfileSection } from "@/widgets";
+import { ProfileSection as Section } from "@/widgets";
 import type { FC } from "react";
 
 interface HistorySectionProps {}
 
 const HistorySection: FC<HistorySectionProps> = ({}) => {
   return (
-    <ProfileSection id="histoty" subHeading="연혁" sectionIdx={2}>
+    <Section id="histoty" subHeading="연혁" sectionIdx={2}>
       <></>
-    </ProfileSection>
+    </Section>
   );
 };
 export default HistorySection;

@@ -17,3 +17,4 @@ export { default as ProjectSection } from "./Profile/ProjectSection";
 export { default as IntroSection } from "./Profile/IntroSection";
 export { default as NameBox } from "./Profile/NameBox";
 export { default as IconGithub } from "./icon/Github";
+export { default as OpacityClickButton } from "./OpacityClickText";

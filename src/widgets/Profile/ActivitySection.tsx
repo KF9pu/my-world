@@ -1,13 +1,13 @@
-import { ProfileSection } from "@/widgets";
+import { ProfileSection as Section } from "@/widgets";
 import type { FC } from "react";
 
 interface ActivitySectionProps {}
 
 const ActivitySection: FC<ActivitySectionProps> = ({}) => {
   return (
-    <ProfileSection id="activity" subHeading="활동" sectionIdx={3}>
+    <Section id="activity" subHeading="활동" sectionIdx={3}>
       <></>
-    </ProfileSection>
+    </Section>
   );
 };
 export default ActivitySection;
