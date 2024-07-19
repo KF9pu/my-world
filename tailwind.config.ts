@@ -29,17 +29,51 @@ const config: Config = {
           "0%, 20%, 70%, 100%": { stroke: "#E08B66" },
           "45%": { stroke: "white" },
         },
+        cusPing4: {
+          "0%, 20%, 70%, 100%": { stroke: "#E08B66" },
+          "50%": { stroke: "white" },
+        },
         smallBounce: {
-          "0%, 100%": { transform: "translateY(-1%)" },
+          "0%, 100%": { transform: "translateY(-8%)" },
           "70%": { transform: "none" },
+        },
+        nameBounce: {
+          "0%, 100%": { transform: "translateY(-12%) " },
+          "70%": { transform: "" },
+        },
+        em1: {
+          "0%, 70%, 100%": { opacity: "1" },
+          "50%": { opacity: "0.5" },
+        },
+        em2: {
+          "0%, 70%, 100%": { opacity: "1" },
+          "53%": { opacity: "0.5" },
+        },
+        em3: {
+          "0%, 70%, 100%": { opacity: "1" },
+          "56%": { opacity: "0.5" },
+        },
+        em4: {
+          "0%, 70%, 100%": { opacity: "1" },
+          "59%": { opacity: "0.5" },
+        },
+        em5: {
+          "0%, 70%, 100%": { opacity: "1" },
+          "62%": { opacity: "0.5" },
         },
       },
       animation: {
-        smallBounce: "smallBounce 3s infinite",
+        nameBounce: "nameBounce 1s infinite",
+        smallBounce: "smallBounce 1s infinite",
         cusPing1: "cusPing1 2s infinite",
         cusPing2: "cusPing2 2s infinite",
         cusPing3: "cusPing3 2s infinite",
         cusPing4: "cusPing4 2s infinite",
+        em1: "em1 2s infinite",
+        em2: "em2 2s infinite",
+        em3: "em3 2s infinite",
+        em4: "em4 2s infinite",
+        em5: "em5 2s infinite",
       },
       colors: {
         primary: "rgba(245, 169, 127, 1)", // 2024년 올해의 색상 - 피치 퍼즈
