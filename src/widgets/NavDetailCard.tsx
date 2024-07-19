@@ -9,7 +9,7 @@ interface NavDetailCardProps {}
 
 const NavDetailCard: FC<NavDetailCardProps> = ({}) => {
   const { hoverPageNum, hoverPageSet } = useHoverPage();
-  const { pageSet } = usePage();
+  const { pageNum, pageSet } = usePage();
   const { setSideSection } = useSideSectionPage();
   const { PageToSections } = PageEnum;
 
@@ -17,7 +17,7 @@ const NavDetailCard: FC<NavDetailCardProps> = ({}) => {
   const [isScrolledToEnd, setIsScrolledToEnd] = useState(false);
 
   const hoverSections =
-    PageToSections[hoverPageNum !== undefined ? hoverPageNum : "none"];
+    PageToSections[hoverPageNum !== undefined ? hoverPageNum : pageNum];
   const sectionLength = hoverSections.length;
 
   useEffect(() => {
