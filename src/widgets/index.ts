@@ -15,4 +15,5 @@ export { default as ActivitySection } from "./Profile/ActivitySection";
 export { default as HistorySection } from "./Profile/HistorySection";
 export { default as ProjectSection } from "./Profile/ProjectSection";
 export { default as IntroSection } from "./Profile/IntroSection";
+export { default as NameBox } from "./Profile/NameBox";
 export { default as IconGithub } from "./icon/Github";
