@@ -1,7 +1,6 @@
 "use client";
 import { cls } from "hsh-utils-string";
-import { animated, useSpring } from "@react-spring/web";
-import { useDrag, useScroll } from "@use-gesture/react";
+import { useScroll } from "@use-gesture/react";
 import {
   useEffect,
   useRef,
@@ -25,46 +24,11 @@ const Section: FC<SectionProps> = ({
   sectionIdx,
   ...props
 }) => {
-  const [springProps, api] = useSpring(() => ({ x: 0, y: 0, opacity: 0 }));
   const { currentSection, setSideSection } = useSideSectionPage();
 
   const scrollSectionRef = useRef<HTMLDivElement | null>(null);
   const [isScrolledToEnd, setIsScrolledToEnd] = useState(false);
   const [isScrollable, setIsScrollable] = useState(false);
-
-  const bind = useDrag(
-    ({
-      event, // 현재 드래그 이벤트에 대한 원시 이벤트 객체입니다. (예: 마우스 이벤트, 터치 이벤트)
-      args, // useDrag 훅에 전달된 인수 배열입니다.
-      down, // 드래그가 활성화되어 있는지 여부를 나타내는 부울 값입니다.
-      movement: [movementX, movementY], // 드래그 시작 지점으로부터의 이동 거리를 나타내는 배열
-      offset: [x, y], // 드래그가 시작된 이후의 총 오프셋을 나타내는 배열
-      velocity: [velocityX, velocityY], // 현재 드래그 속도를 나타내는 배열
-      delta: [deltaX, deltaY], // 이전 이벤트 이후의 변화량을 나타내는 배열
-      direction, // 드래그 방향을 나타내는 배열
-      initial: [initialX, initialY], // 드래그가 시작된 시점의 위치를 나타내는 배열
-      dragging, // 현재 드래그 상태인지 여부를 나타내는 부울 값
-    }) => {
-      api.start({ x: movementX, y: movementY });
-
-      setSideSection(sectionIdx);
-
-      // 스크롤 가능 여부 확인
-      if (scrollSectionRef.current) {
-        const { scrollHeight, clientHeight } = scrollSectionRef.current;
-        setIsScrollable(scrollHeight > clientHeight);
-      }
-
-      // 드래그가 끝난 후 원래 위치로 돌아가도록 설정
-      if (!down) {
-        api.start({ x: 0, y: 0 });
-      }
-
-      if (movementX > 100) {
-        console.log("section Up");
-      }
-    }
-  );
 
   const handleScroll = ({ xy: [x, y] }: { xy: [number, number] }) => {
     if (scrollSectionRef.current) {
@@ -88,14 +52,15 @@ const Section: FC<SectionProps> = ({
   useEffect(() => {
     setIsScrolledToEnd(false);
     if (scrollSectionRef.current) {
+      const { scrollHeight, clientHeight } = scrollSectionRef.current;
+      setIsScrollable(scrollHeight > clientHeight);
       scrollSectionRef.current.scrollTop = 0;
     }
   }, [currentSection]);
 
   return (
-    <animated.section
+    <section
       {...props}
-      {...bind()}
       className={cls(
         "w-full h-[94%]",
         "absolute",
@@ -104,8 +69,6 @@ const Section: FC<SectionProps> = ({
         "bg-opacity-0"
       )}
       style={{
-        x: springProps.x,
-        y: springProps.y,
         zIndex: currentSection === sectionIdx ? 8 : 7 - sectionIdx,
         backgroundColor:
           currentSection === sectionIdx
@@ -115,13 +78,15 @@ const Section: FC<SectionProps> = ({
     >
       <div className={cls("relative", "w-full h-full")}>
         <header
+          onClick={() => setSideSection(sectionIdx)}
           className={cls(
             "flex justify-center items-end",
             "absolute top-[-39.5px]",
             "w-[100px] h-[40px]",
             "rounded-t-2xl",
             "transition-all",
-            "cursor-pointer"
+            "cursor-pointer",
+            currentSection === sectionIdx ? "" : "group"
           )}
           style={{
             left: `${sectionIdx * 120 + 20}px`,
@@ -131,7 +96,9 @@ const Section: FC<SectionProps> = ({
                 : `rgba(245, 169, 127, ${1 - (sectionIdx * 2) / 10})`, // 배경 투명도 설정
           }}
         >
-          <b>{subHeading}</b>
+          <b className="group-hover:animate-smallBounce group-hover:text-[28px]">
+            {subHeading}
+          </b>
         </header>
         {currentSection === sectionIdx ? (
           <div
@@ -173,7 +140,7 @@ const Section: FC<SectionProps> = ({
           <></>
         )}
       </div>
-    </animated.section>
+    </section>
   );
 };
 export default Section;
