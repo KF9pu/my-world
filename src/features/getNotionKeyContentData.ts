@@ -41,14 +41,14 @@ async function getNotionKeyContentData({
     }
 
     const response = await notion.databases.query(queryOptions);
-    console.log("🚀 ~ getNotionKeyContentData ~ response:", response.results);
+    // console.log("🚀 ~ getNotionKeyContentData ~ response:", response.results);
 
     return response.results.map((items: any, idx: number) => {
       const result = {
         key: items.properties.key.title[0].text.content,
         content: items.properties.content.rich_text[0].text.content,
       };
-      console.log("🚀 ~ returnresponse.results.map ~ result:", result);
+      // console.log("🚀 ~ returnresponse.results.map ~ result:", result);
       return result;
     });
   } catch (error) {
