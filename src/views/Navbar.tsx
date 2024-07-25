@@ -1,12 +1,11 @@
 "use client";
-import { PageEnum } from "@/enums";
 import { useHoverPage } from "@/shared";
 import { usePage } from "@/shared";
-import { NavCard, NavDetailCard, YFlipBox, ArrowRight } from "@/widgets";
+import { NavCard, NavDetailCard, YFlipBox } from "@/widgets";
 import { useSpring, a } from "@react-spring/web";
 import { cls } from "hsh-utils-string";
 import Image from "next/image";
-import { useRef, useState, useEffect, type FC } from "react";
+import { useState, useEffect, type FC } from "react";
 
 interface NavbarProps {}
 

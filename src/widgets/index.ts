@@ -16,7 +16,10 @@ export { default as HistorySection } from "./Profile/HistorySection";
 export { default as ProjectSection } from "./Profile/ProjectSection";
 export { default as IntroSection } from "./Profile/IntroSection";
 export { default as NameBox } from "./Profile/NameBox";
+
 export { default as IconGithub } from "./icon/Github";
+export { default as IconWishket } from "./icon/Wishket";
+
 export { default as OpacityClickText } from "./OpacityClickText";
 export { default as IntroSectionBackButton } from "./Profile/IntroSectionBackButton";
 export { default as IntroSectionContents } from "./Profile/IntroSectionContents";

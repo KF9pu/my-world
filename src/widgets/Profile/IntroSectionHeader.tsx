@@ -1,7 +1,12 @@
 import { cls } from "hsh-utils-string";
 import type { FC } from "react";
 import { useIntroView } from "@/shared";
-import { IconGithub, NameBox } from "..";
+import {
+  IconGithub,
+  IntroSectionDeckBox as DeckBox,
+  NameBox,
+  IconWishket,
+} from "..";
 
 interface IntroSectionHeaderProps {}
 
@@ -20,7 +25,8 @@ const IntroSectionHeader: FC<IntroSectionHeaderProps> = ({}) => {
       <NameBox />
       <div
         className={cls(
-          "min-w-[120px]",
+          "flex justify-around",
+          "min-w-[140px]",
           "p-[12px]",
           "bg-accent",
           "rounded-2xl",
@@ -28,7 +34,9 @@ const IntroSectionHeader: FC<IntroSectionHeaderProps> = ({}) => {
         )}
       >
         <IconGithub />
+        <IconWishket />
       </div>
+      <DeckBox />
     </header>
   );
 };

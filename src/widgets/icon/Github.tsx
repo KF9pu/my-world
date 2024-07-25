@@ -17,7 +17,7 @@ const Github: FC<GithubProps> = ({}) => {
       >
         <svg
           className={cls(
-            "w-[32px] h-[32px]",
+            "w-[36px] h-[36px]",
             "cursor-pointer",
             "transition-all",
             "group-hover:text-primary-dark group-hover:scale-150"
@@ -43,7 +43,7 @@ const Github: FC<GithubProps> = ({}) => {
           )}
         >
           <b>GitHub</b>
-          <b>구경하기</b>
+          <b className="whitespace-nowrap">구경하기</b>
         </div>
       </div>
     </Link>
