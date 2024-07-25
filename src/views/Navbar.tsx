@@ -5,7 +5,7 @@ import { NavCard, NavDetailCard, YFlipBox } from "@/widgets";
 import { useSpring, a } from "@react-spring/web";
 import { cls } from "hsh-utils-string";
 import Image from "next/image";
-import { useState, useEffect, type FC } from "react";
+import { useState, type FC } from "react";
 
 interface NavbarProps {}
 

@@ -4,6 +4,6 @@
  *  - 예를 들어, 사용자 관리, 게시물 작성, 댓글 기능 등이 각각의 폴더로 구분됩니다.
  */
 
-export { default as getNotionDBData } from "./getNotionDBData";
-export { default as getNotionDBKey } from "./getNotionDBKey";
+export { default as getNotionKeyContentData } from "./getNotionKeyContentData";
 export { default as getNotionPageBlocks } from "./getNotionPageBlocks";
+export { default as fetcher } from "./fetcher";

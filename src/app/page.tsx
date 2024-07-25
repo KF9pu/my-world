@@ -3,10 +3,11 @@ import { PageEnum } from "@/enums";
 import { usePage } from "@/shared";
 import { Profile } from "@/views";
 import { cls } from "hsh-utils-string";
-import type { Metadata, NextPage } from "next";
+import type { NextPage } from "next";
 
 const Page: NextPage = () => {
   const { pageNum } = usePage();
+
   return (
     <main className={cls("flex justify-center items-center", "w-full h-full")}>
       {PageEnum.Page.Profile === pageNum ? <Profile /> : <></>}
