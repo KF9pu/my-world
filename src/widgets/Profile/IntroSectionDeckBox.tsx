@@ -75,7 +75,8 @@ const IntroSectionDeckBox: FC<IntroSectionDeckBoxProps> = ({}) => {
         "flex justify-center items-center",
         "relative",
         "w-full h-full",
-        "p-[12px]"
+        "p-[12px]",
+        "rounded-2xl"
       )}
     >
       {isLoading ? (
@@ -94,14 +95,51 @@ const IntroSectionDeckBox: FC<IntroSectionDeckBoxProps> = ({}) => {
                   transform: interpolate([rot, scale], trans),
                 }}
                 className={cls(
+                  "flex flex-col justify-center items-center",
                   "w-full h-full",
                   "shadow-2xl",
-                  "bg-primary",
+                  "bg-accent",
+                  "text-black",
                   "cursor-pointer"
                 )}
               >
-                <p>{data.data[i].key}</p>
-                <p>{data.data[i].content}</p>
+                <div
+                  className={cls(
+                    "flex justify-center items-center",
+                    "relative",
+                    "w-full h-full",
+                    "border-2 border-black"
+                  )}
+                >
+                  <div
+                    className={cls(
+                      "flex flex-col gap-[12px]",
+                      "min-w-[64%] h-[60%]"
+                    )}
+                  >
+                    <p className="text-[48px]">
+                      <b>{data.data[i].key}</b>
+                    </p>
+                    <p
+                      className={cls(
+                        "flex justify-center items-center",
+                        "w-full h-[50%]",
+                        "border-2 border-black",
+                        "text-[32px]"
+                      )}
+                    >
+                      {data.data[i].content}
+                    </p>
+                  </div>
+                  <p
+                    className={cls(
+                      "absolute bottom-[4px] right-[8px]",
+                      "text-[12px]"
+                    )}
+                  >
+                    <b>{props.length - i}</b>
+                  </p>
+                </div>
               </a.div>
             </a.div>
           ))}

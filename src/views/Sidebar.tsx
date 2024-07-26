@@ -4,7 +4,7 @@ import { usePage, useSideSectionPage } from "@/shared";
 import { useEffect, useRef, useState, type FC } from "react";
 import { cls } from "hsh-utils-string";
 import YFlipBox from "../widgets/YFlipBox";
-import { ArrowRight } from "@/widgets";
+import { ArrowRight, IconGithub, IconWishket } from "@/widgets";
 
 interface SidebarProps {}
 
@@ -53,10 +53,10 @@ const Sidebar: FC<SidebarProps> = ({}) => {
   }, [pageNum]);
 
   return (
-    <div className={cls("w-full h-full", " py-[20px] px-[20px]")}>
+    <div className={cls("w-full h-full", "py-[20px] px-[20px]")}>
       <div
         className={cls(
-          "flex flex-col items-center gap-[12px]",
+          "flex flex-col items-center gap-[20px]",
           "w-[200px] h-full",
           "shadow-lg shadow-primary-shadow",
           "rounded-full",
@@ -69,7 +69,7 @@ const Sidebar: FC<SidebarProps> = ({}) => {
           className={cls(
             "w-fit",
             "font-bold",
-            "px-[24px] py-[12px]",
+            "px-[24px] pt-[12px]",
             "text-[24px]",
             "text-shadow-lg"
           )}
@@ -139,6 +139,18 @@ const Sidebar: FC<SidebarProps> = ({}) => {
             )}
             ping
           />
+        </div>
+        <div
+          className={cls(
+            "flex items-center justify-around",
+            // "absolute top-0 right-0",
+            "w-[140px] h-fit"
+          )}
+        >
+          <IconGithub />
+          <IconWishket />
+          {/* TODO:Notin Icon 생성 - Notion 이력서? 연결 */}
+          {/* <NextPageButton /> */}
         </div>
       </div>
     </div>

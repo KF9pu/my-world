@@ -5,6 +5,8 @@ import { PageEnum } from "@/enums";
 interface State {
   currentSection: number;
   setSideSection: (currentSection: number) => void;
+  sideSectionUp: () => void;
+  sideSectionDown: () => void;
 }
 
 const useSideSectionPage = create<State>((set) => ({

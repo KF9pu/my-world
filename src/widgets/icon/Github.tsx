@@ -20,7 +20,7 @@ const Github: FC<GithubProps> = ({}) => {
             "w-[36px] h-[36px]",
             "cursor-pointer",
             "transition-all",
-            "group-hover:text-primary-dark group-hover:scale-150"
+            "text-black group-hover:text-primary-dark group-hover:scale-150"
           )}
           viewBox="0 0 16 16"
           version="1.1"

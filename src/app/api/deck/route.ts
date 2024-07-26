@@ -9,9 +9,15 @@ export async function GET(request: Request) {
     filter: {
       property: "분류",
       select: {
-        equals: "DeckCard",
+        equals: "DeckCard", // notion db에서 DeckCard만 가져옴
       },
     },
+    sorts: [
+      {
+        property: "idx",
+        direction: "descending", //오름차순(ascending), 내림차순(descending)
+      },
+    ],
   });
 
   return NextResponse.json({ data });

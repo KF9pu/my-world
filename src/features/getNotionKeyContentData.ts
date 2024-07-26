@@ -4,6 +4,7 @@ import { GetDatabaseResponse } from "@notionhq/client/build/src/api-endpoints";
 interface I_NotionDBprops {
   database_id: string;
   filter?: any;
+  sorts?: any;
 }
 
 const notion = new Client({
@@ -28,6 +29,7 @@ async function getNotionDBKey(database_id: any) {
 async function getNotionKeyContentData({
   database_id,
   filter,
+  sorts,
 }: I_NotionDBprops) {
   try {
     const queryOptions: any = {
@@ -38,6 +40,10 @@ async function getNotionKeyContentData({
     // 필터 조건이 주어졌을 때만 필터를 추가
     if (filter) {
       queryOptions.filter = filter;
+    }
+    // 필터 조건이 주어졌을 때만 필터를 추가
+    if (sorts) {
+      queryOptions.sorts = sorts;
     }
 
     const response = await notion.databases.query(queryOptions);

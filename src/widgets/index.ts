@@ -15,13 +15,10 @@ export { default as ActivitySection } from "./Profile/ActivitySection";
 export { default as HistorySection } from "./Profile/HistorySection";
 export { default as ProjectSection } from "./Profile/ProjectSection";
 export { default as IntroSection } from "./Profile/IntroSection";
-export { default as NameBox } from "./Profile/NameBox";
 
 export { default as IconGithub } from "./icon/Github";
 export { default as IconWishket } from "./icon/Wishket";
 
 export { default as OpacityClickText } from "./OpacityClickText";
-export { default as IntroSectionBackButton } from "./Profile/IntroSectionBackButton";
-export { default as IntroSectionContents } from "./Profile/IntroSectionContents";
+export { default as NextPageButton } from "./NextPageButton";
 export { default as IntroSectionDeckBox } from "./Profile/IntroSectionDeckBox";
-export { default as IntroSectionHeader } from "./Profile/IntroSectionHeader";

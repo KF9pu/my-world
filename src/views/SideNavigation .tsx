@@ -20,6 +20,7 @@ const SideNavigation: FC<SideNavigationProps> = ({}) => {
     >
       <Navbar />
       <Sidebar />
+      {/* TODO:footer 작업 */}
     </aside>
   );
 };

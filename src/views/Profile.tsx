@@ -2,6 +2,8 @@
 import {
   ActivitySection,
   HistorySection,
+  IconGithub,
+  IconWishket,
   IntroSection,
   ProjectSection,
 } from "@/widgets";
