@@ -140,18 +140,6 @@ const Sidebar: FC<SidebarProps> = ({}) => {
             ping
           />
         </div>
-        <div
-          className={cls(
-            "flex items-center justify-around",
-            // "absolute top-0 right-0",
-            "w-[140px] h-fit"
-          )}
-        >
-          <IconGithub />
-          <IconWishket />
-          {/* TODO:Notin Icon 생성 - Notion 이력서? 연결 */}
-          {/* <NextPageButton /> */}
-        </div>
       </div>
     </div>
   );

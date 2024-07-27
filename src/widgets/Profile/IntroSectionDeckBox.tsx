@@ -22,7 +22,7 @@ const from = (_i: number) => ({
 });
 
 const trans = (r: number, s: number) =>
-  `perspective(1500px) rotateX(30deg) rotateY(${
+  `perspective(1500px) rotateX(20deg) rotateY(${
     r / 10
   }deg) rotateZ(${r}deg) scale(${s})`;
 
@@ -74,9 +74,7 @@ const IntroSectionDeckBox: FC<IntroSectionDeckBoxProps> = ({}) => {
       className={cls(
         "flex justify-center items-center",
         "relative",
-        "w-full h-full",
-        "p-[12px]",
-        "rounded-2xl"
+        "w-full h-full"
       )}
     >
       {isLoading ? (
@@ -98,6 +96,7 @@ const IntroSectionDeckBox: FC<IntroSectionDeckBoxProps> = ({}) => {
                   "flex flex-col justify-center items-center",
                   "w-full h-full",
                   "shadow-2xl",
+                  "rounded-md",
                   "bg-accent",
                   "text-black",
                   "cursor-pointer"
@@ -108,7 +107,8 @@ const IntroSectionDeckBox: FC<IntroSectionDeckBoxProps> = ({}) => {
                     "flex justify-center items-center",
                     "relative",
                     "w-full h-full",
-                    "border-2 border-black"
+                    "border-2 border-black",
+                    "rounded-md"
                   )}
                 >
                   <div

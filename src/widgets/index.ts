@@ -22,3 +22,4 @@ export { default as IconWishket } from "./icon/Wishket";
 export { default as OpacityClickText } from "./OpacityClickText";
 export { default as NextPageButton } from "./NextPageButton";
 export { default as IntroSectionDeckBox } from "./Profile/IntroSectionDeckBox";
+export { default as AbsoluteHelp } from "./AbsoluteHelp";

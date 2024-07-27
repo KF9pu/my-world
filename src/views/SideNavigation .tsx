@@ -1,7 +1,7 @@
 "use client";
 import { cls } from "hsh-utils-string";
-import type { FC } from "react";
-import { Navbar, Sidebar } from "./";
+import { type FC } from "react";
+import { Footer, Navbar, Sidebar } from "./";
 
 interface SideNavigationProps {}
 
@@ -20,7 +20,7 @@ const SideNavigation: FC<SideNavigationProps> = ({}) => {
     >
       <Navbar />
       <Sidebar />
-      {/* TODO:footer 작업 */}
+      <Footer />
     </aside>
   );
 };
