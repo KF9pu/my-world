@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { MainContainer, SideNavigation } from "@/views";
+import { MainContainer, SideNavigation } from "@/components";
 import { cls } from "hsh-utils-string";
 
 export const metadata: Metadata = {

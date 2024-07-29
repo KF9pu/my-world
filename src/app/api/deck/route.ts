@@ -1,5 +1,5 @@
 // app/api/hello/route.js
-import { getNotionKeyContentData as getDatabase } from "@/features";
+import { getNotionKeyContentData as getDatabase } from "@/libs";
 import { NextResponse } from "next/server";
 
 export async function GET(request: Request) {

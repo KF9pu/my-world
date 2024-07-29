@@ -1,9 +1,9 @@
 "use client";
-import { PageEnum } from "@/enums";
-import { usePage } from "@/shared";
-import { Profile } from "@/views";
+import { PageEnum } from "@/constants/enums";
+import { Profile } from "@/components";
 import { cls } from "hsh-utils-string";
 import type { NextPage } from "next";
+import { usePage } from "@/libs";
 
 const Page: NextPage = () => {
   const { pageNum } = usePage();
