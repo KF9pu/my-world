@@ -11,8 +11,7 @@ export { default as NavCard } from "./features/navigation/NavCard";
 export { default as Navbar } from "./features/navigation/Navbar";
 
 export { default as MainContainer } from "./features/MainContainer";
-export { default as Profile } from "./pages/profile";
-export { default as Footer } from "./pages/Footer";
+export { default as Footer } from "./features/Footer";
 
 export { default as IconWishket } from "./shared/icon/Wishket";
 export { default as IconGithub } from "./shared/icon/Github";
@@ -24,11 +23,13 @@ export { default as XFlipBox } from "./shared/XFlipBox";
 export { default as YFlipBox } from "./shared/YFlipBox";
 export { default as ArrowRight } from "./shared/ArrowRight";
 export { default as EmptyBox } from "./shared/EmptyBox";
+export { default as Loading } from "./shared/Loading";
 
-export { default as ProfileSection } from "./pages/profile/Section";
+export { default as Profile } from "./pages/profile";
+export { default as ProfileSection } from "./pages/Section";
+export { default as IntroSection } from "./pages/profile/IntroSection";
+export { default as IntroDeckBox } from "./pages/profile/IntroSection/DeckBox";
+export { default as ProjectSection } from "./pages/profile/ProjectSection";
+export { default as ThisProjectBox } from "./pages/profile/ProjectSection/ThisProjectBox";
 export { default as ActivitySection } from "./pages/profile/ActivitySection";
 export { default as HistorySection } from "./pages/profile/HistorySection";
-export { default as ProjectSection } from "./pages/profile/ProjectSection";
-export { default as IntroSection } from "./pages/profile/IntroSection";
-export { default as ThisProjextBox } from "./pages/profile/ThisProjextBox";
-export { default as IntroSectionDeckBox } from "./pages/profile/IntroSectionDeckBox";

@@ -13,6 +13,9 @@ const AbsoluteHelp: FC<AbsoluteHelpProps> = ({ children }) => {
   const helpBoxSpringProps = useSpring({
     width: helpHover ? 160 : 28,
     height: helpHover ? 200 : 28,
+    config: {
+      duration: 100,
+    },
   });
 
   return (
@@ -20,11 +23,12 @@ const AbsoluteHelp: FC<AbsoluteHelpProps> = ({ children }) => {
       className={cls(
         "absolute top-0 right-0 z-[7]",
         "w-fit h-fit min-w-[28px] min-h-[28px]",
-        "border border-primary-dark",
+        "border border-primary-dark hover:border-primary-light-contrast",
         "transition-all",
         "shadow-lg",
         "rounded-2xl",
-        "text-primary-dark"
+        "text-primary-dark hover:text-primary-light-contrast",
+        "bg-primary-light"
       )}
       onMouseOver={() => setHelpHover(true)}
       onMouseLeave={() => setHelpHover(false)}
@@ -43,13 +47,13 @@ const AbsoluteHelp: FC<AbsoluteHelpProps> = ({ children }) => {
             "flex flex-col justify-center items-center",
             "absolute top-[36px] right-[8px]",
             "w-[144px] h-[156px]",
-            "border border-primary-dark",
+            "border border-primary-light-contrast",
             "rounded-2xl",
             "p-[8px]",
-            "text-[16px]"
+            "text-[20px]"
           )}
         >
-          {children}
+          <b>{children}</b>
         </div>
       </a.div>
     </div>

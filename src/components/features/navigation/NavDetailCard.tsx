@@ -2,7 +2,7 @@
 import { useHoverPage, usePage, useSideSectionPage } from "@/libs";
 import { cls } from "hsh-utils-string";
 import { useEffect, useRef, useState, type FC } from "react";
-import { PageEnum } from "@/constants/enums";
+import { PageEnum } from "@/constants/";
 import { EmptyBox, ArrowRight } from "@/components";
 
 interface NavDetailCardProps {}

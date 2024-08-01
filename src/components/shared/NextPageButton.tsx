@@ -2,7 +2,7 @@ import { cls } from "hsh-utils-string";
 import type { FC } from "react";
 import { OpacityClickText as ClickText } from "@/components";
 import { usePage, useSideSectionPage } from "@/libs";
-import { PageEnum } from "@/constants/enums";
+import { PageEnum } from "@/constants/";
 
 interface NextPageButtonProps {}
 

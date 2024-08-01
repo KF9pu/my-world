@@ -1,4 +1,5 @@
 "use client";
+import Loading from "@/components/shared/Loading";
 import { fetcher } from "@/libs";
 import { a, useSprings, to as interpolate } from "@react-spring/web";
 import { useDrag } from "@use-gesture/react";
@@ -6,11 +7,11 @@ import { cls } from "hsh-utils-string";
 import { useState, type FC } from "react";
 import useSWR from "swr";
 
-interface IntroSectionDeckBoxProps {}
+interface DeckBoxProps {}
 
 const to = (i: number) => ({
   x: 0,
-  y: i * -4,
+  y: i * -4 + Math.random() * 2,
   scale: 0.8,
   rot: -10 + Math.random() * 20,
   delay: i * 100,
@@ -19,7 +20,7 @@ const from = (_i: number) => ({
   x: 0,
   rot: -10 + Math.random() * 20,
   scale: 0.8,
-  y: -30,
+  y: -30 + Math.random() * 2,
 });
 
 const trans = (r: number, s: number) =>
@@ -27,7 +28,7 @@ const trans = (r: number, s: number) =>
     r / 10
   }deg) rotateZ(${r}deg) scale(${s})`;
 
-const IntroSectionDeckBox: FC<IntroSectionDeckBoxProps> = ({}) => {
+const DeckBox: FC<DeckBoxProps> = ({}) => {
   const { data, error, isLoading } = useSWR("/api/deck", fetcher);
 
   const [gone] = useState(() => new Set());
@@ -79,7 +80,7 @@ const IntroSectionDeckBox: FC<IntroSectionDeckBoxProps> = ({}) => {
       )}
     >
       {isLoading ? (
-        <div>loading...</div>
+        <Loading />
       ) : (
         <>
           {props.map(({ x, y, rot, scale }, i) => (
@@ -100,7 +101,7 @@ const IntroSectionDeckBox: FC<IntroSectionDeckBoxProps> = ({}) => {
                   "rounded-md",
                   "bg-accent",
                   "text-black",
-                  "cursor-pointer"
+                  "cursor-grab"
                 )}
               >
                 <div
@@ -126,7 +127,8 @@ const IntroSectionDeckBox: FC<IntroSectionDeckBoxProps> = ({}) => {
                         "flex justify-center items-center",
                         "w-full h-[50%]",
                         "border-2 border-black",
-                        "text-[32px]"
+                        "text-[32px]",
+                        "p[12px]"
                       )}
                     >
                       {data.data[i].content}
@@ -149,4 +151,4 @@ const IntroSectionDeckBox: FC<IntroSectionDeckBoxProps> = ({}) => {
     </div>
   );
 };
-export default IntroSectionDeckBox;
+export default DeckBox;

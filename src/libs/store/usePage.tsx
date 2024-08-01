@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { PageEnum } from "@/constants/enums";
+import { PageEnum } from "@/constants/";
 
 interface State {
   pageNum: number;

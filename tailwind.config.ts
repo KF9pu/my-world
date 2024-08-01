@@ -59,6 +59,14 @@ const config: Config = {
           "0%, 70%, 100%": { opacity: "1" },
           "62%": { opacity: "0.5" },
         },
+        em6: {
+          "0%, 70%, 100%": { opacity: "1" },
+          "65%": { opacity: "0.5" },
+        },
+        em7: {
+          "0%, 70%, 100%": { opacity: "1" },
+          "68%": { opacity: "0.5" },
+        },
       },
       animation: {
         nameBounce: "nameBounce 1s infinite",
@@ -72,9 +80,11 @@ const config: Config = {
         em3: "em3 2s infinite",
         em4: "em4 2s infinite",
         em5: "em5 2s infinite",
+        em6: "em6 2s infinite",
+        em7: "em7 2s infinite",
       },
       colors: {
-        primary: "rgba(245, 169, 127, 1)", // 2024년 올해의 색상 - 피치 퍼즈
+        primary: "rgba(255, 190, 152, 1)", // 2024년 올해의 색상 - 피치 퍼즈
         "primary-dark": "rgba(224, 139, 102, 1)", // 어두운 버전
         "primary-light": "rgba(255, 209, 184, 1)", // 밝은 버전
         accent: "#FFE0D6", // 포인트 컬러

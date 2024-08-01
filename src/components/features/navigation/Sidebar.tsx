@@ -1,5 +1,5 @@
 "use client";
-import { PageEnum } from "@/constants/enums";
+import { PageEnum } from "@/constants/";
 import { usePage, useSideSectionPage } from "@/libs";
 import { useEffect, useRef, useState, type FC } from "react";
 import { cls } from "hsh-utils-string";

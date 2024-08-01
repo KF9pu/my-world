@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import usePage from "./usePage";
-import { PageEnum } from "@/constants/enums";
+import { PageEnum } from "@/constants/";
 
 interface State {
   currentSection: number;

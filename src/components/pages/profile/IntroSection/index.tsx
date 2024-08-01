@@ -1,7 +1,7 @@
 import {
   AbsoluteHelp,
   ProfileSection as Section,
-  IntroSectionDeckBox as DeckBox,
+  IntroDeckBox as DeckBox,
 } from "@/components";
 import { cls } from "hsh-utils-string";
 import { type FC } from "react";
@@ -21,7 +21,6 @@ const IntroSection: FC<IntroSectionProps> = ({}) => {
         )}
       >
         <AbsoluteHelp>
-          <p>간단한 소개 섹션 입니다.</p>
           <p>카드를 드래그 하고,</p>
           <p>날려 보세요!</p>
         </AbsoluteHelp>
